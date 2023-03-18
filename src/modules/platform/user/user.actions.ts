@@ -56,3 +56,17 @@ export function sortData(data: any) {
     d.reverse();
     return d;
 }
+
+export async function fetchCampaignList(setCampaignList: any) {
+    try {
+        if (localStorage.getItem("userType") === "Admin") {
+            const res: any = await getCampaignList();
+            console.log("CampaignList", res.results);
+            const data = sortData(res.results);
+
+            setCampaignList(data);
+        }
+    } catch (error) {
+        console.error(error);
+    }
+}
