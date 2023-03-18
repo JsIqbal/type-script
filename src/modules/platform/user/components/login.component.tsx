@@ -1,13 +1,7 @@
 import { Formik, Form, Field, ErrorMessage, FormikHelpers } from "formik";
 import { useNavigate } from "react-router-dom";
-import * as Yup from "yup";
 import { login } from "../user.actions";
-
-const LoginSchema = Yup.object().shape({
-    // email: Yup.string().email("Invalid username").required("Required"),
-    username: Yup.string().required("Invalid username"),
-    password: Yup.string().required("Required"),
-});
+import { loginSchema } from "../user.schema";
 
 interface FormValues {
     username: string;
@@ -36,7 +30,7 @@ const Login: React.FC = () => {
                 <h2 className="text-center mb-4">QikCheck</h2>
                 <Formik
                     initialValues={initialValues}
-                    validationSchema={LoginSchema}
+                    validationSchema={loginSchema}
                     onSubmit={handleSubmit}
                 >
                     {({ isSubmitting }) => (
@@ -50,7 +44,7 @@ const Login: React.FC = () => {
                                     placeholder="user name"
                                 />
                                 <ErrorMessage
-                                    name="email"
+                                    name="username"
                                     component="div"
                                     className="text-danger"
                                 />
@@ -72,7 +66,7 @@ const Login: React.FC = () => {
                             <button
                                 type="submit"
                                 disabled={isSubmitting}
-                                className="chart-link btn btn-primary"
+                                className="btn btn-primary"
                             >
                                 {isSubmitting ? "Loading..." : "Login"}
                             </button>
