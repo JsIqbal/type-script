@@ -1,0 +1,14 @@
+.chart-link {
+    animation: chart-link 10s ease infinite;
+    background: #4b49ac;
+    background-size: 600% 600%;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    height: 0 !important;
+    line-height: 0;
+    padding: 14px 10px !important;
+    text-decoration: none !important;
+    transition: all 0.3s linear;
+    color: aliceblue;
+}

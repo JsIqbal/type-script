@@ -1,79 +1,87 @@
-import React from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import { loginSchema } from "../user.schema";
-import { login } from "../user.actions";
+import { Formik, Form, Field, ErrorMessage, FormikHelpers } from "formik";
 import { useNavigate } from "react-router-dom";
+import * as Yup from "yup";
+import { login } from "../user.actions";
 
-function Login() {
-    let navigate = useNavigate();
+const LoginSchema = Yup.object().shape({
+    // email: Yup.string().email("Invalid username").required("Required"),
+    username: Yup.string().required("Invalid username"),
+    password: Yup.string().required("Required"),
+});
+
+interface FormValues {
+    username: string;
+    password: string;
+}
+
+const Login: React.FC = () => {
+    const navigate = useNavigate();
+    const initialValues = { username: "", password: "" };
+
+    const handleSubmit = async (
+        values: FormValues,
+        actions: FormikHelpers<FormValues>
+    ) => {
+        await login(values).then((response: any) => {
+            localStorage.setItem("userType", response.data.userType);
+            localStorage.setItem("access", response.data.access);
+            window.location.href = "/";
+        });
+        actions.setSubmitting(false);
+    };
+
     return (
-        <div className="d-flex align-items-center justify-content-center vh-100 bg-light">
-            <Formik
-                initialValues={{
-                    email: "",
-                    password: "",
-                }}
-                validationSchema={loginSchema}
-                onSubmit={(values, actions) => {
-                    actions.setSubmitting(false);
-                }}
-            >
-                {(formikprops) => {
-                    return (
-                        <form className="p-4 bg-white rounded-lg shadow-lg  col-lg-3">
-                            <h2 className="mb-4 h4 text-center text-primary font-weight-bold">
-                                QikCheck
-                            </h2>
-                            <div className="mb-4">
-                                <label htmlFor="email" className="form-label">
-                                    Email Address
-                                </label>
+        <div className="container-fluid vh-100 d-flex justify-content-center align-items-center">
+            <div className="card p-3" style={{ borderRadius: "10px" }}>
+                <h2 className="text-center mb-4">QikCheck</h2>
+                <Formik
+                    initialValues={initialValues}
+                    validationSchema={LoginSchema}
+                    onSubmit={handleSubmit}
+                >
+                    {({ isSubmitting }) => (
+                        <Form>
+                            <div className="form-group">
+                                <label htmlFor="email">Username</label>
                                 <Field
-                                    type="email"
+                                    type="username"
+                                    name="username"
                                     className="form-control"
-                                    id="email"
-                                    name="email"
-                                    placeholder="example@example.com"
+                                    placeholder="user name"
                                 />
-                                <div className="text-danger mt-1">
-                                    <ErrorMessage name="email" />
-                                </div>
+                                <ErrorMessage
+                                    name="email"
+                                    component="div"
+                                    className="text-danger"
+                                />
                             </div>
-
-                            <div className="mb-4">
-                                <label
-                                    htmlFor="password"
-                                    className="form-label"
-                                >
-                                    Password
-                                </label>
+                            <div className="form-group mb-2">
+                                <label htmlFor="password">Password</label>
                                 <Field
                                     type="password"
-                                    className="form-control"
-                                    id="password"
                                     name="password"
-                                    placeholder="********"
+                                    className="form-control"
+                                    placeholder="Enter password"
                                 />
-                                <div className="text-danger mt-1">
-                                    <ErrorMessage name="password" />
-                                </div>
+                                <ErrorMessage
+                                    name="password"
+                                    component="div"
+                                    className="text-danger"
+                                />
                             </div>
-
                             <button
                                 type="submit"
-                                className="btn btn-primary btn-block mt-4"
-                                disabled={formikprops.isSubmitting}
+                                disabled={isSubmitting}
+                                className="chart-link btn btn-primary"
                             >
-                                {formikprops.isSubmitting
-                                    ? "Loading..."
-                                    : "Login"}
+                                {isSubmitting ? "Loading..." : "Login"}
                             </button>
-                        </form>
-                    );
-                }}
-            </Formik>
+                        </Form>
+                    )}
+                </Formik>
+            </div>
         </div>
     );
-}
+};
 
 export default Login;

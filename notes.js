@@ -12,6 +12,6 @@ tsc hello.ts
 
 npx create-react-app my-app --template typescript
 
-npm install --save apex
-npm install --save-dev @types/apex
+npm install --save axios
+npm install --save-dev @types/axios
 */
