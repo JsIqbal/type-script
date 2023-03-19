@@ -18,8 +18,8 @@ const Nav: React.FC = () => {
     }, [isTop]);
 
     const navbarClasses = isTop
-        ? "mx-auto max-w-screen-4xl py-2 px-4 lg:px-8 lg:py-4 text-white"
-        : "mx-auto max-w-screen-4xl py-2 px-4 lg:px-8 lg:py-4 text-white fixed-top";
+        ? "mx-auto max-w-screen-4xl py-2 px-4 lg:px-8 lg:py-4 text-white navbar-transition"
+        : "mx-auto max-w-screen-4xl py-2 px-4 lg:px-8 lg:py-4 text-white fixed-top navbar-transition";
 
     return (
         <Navbar bg="dark" variant="dark" className={navbarClasses}>

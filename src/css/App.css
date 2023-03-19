@@ -97,3 +97,7 @@
         background-position: 0% 50%;
     }
 }
+
+.navbar-transition {
+    transition: all 0.3s ease-in-out;
+}
