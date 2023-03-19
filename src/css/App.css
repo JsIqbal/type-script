@@ -12,3 +12,22 @@
     transition: all 0.3s linear;
     color: aliceblue;
 }
+
+.chart-container {
+    margin-top: 50px;
+    padding: 0 13px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.chart {
+    -webkit-box-shadow: 5px 5px 91px -46px rgba(193, 187, 230, 1);
+    -moz-box-shadow: 5px 5px 91px -46px rgba(193, 187, 230, 1);
+    box-shadow: 5px 5px 91px -46px rgba(193, 187, 230, 1);
+    border: 1px solid #dadce0;
+}
+
+.typo-graphy {
+    font-family: "Righteous", cursive;
+    font-size: 35px;
+}

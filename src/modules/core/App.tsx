@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Routes, Route, Navigate, Outlet } from "react-router-dom";
 
 import { useState } from "react";
@@ -25,7 +25,7 @@ export default function App() {
                 <Route
                     path="/"
                     element={
-                        <div className="mainContainer">
+                        <div className=" mb-5">
                             <AdminRoute isAdmin={isAdmin}>
                                 <Outlet />
                             </AdminRoute>

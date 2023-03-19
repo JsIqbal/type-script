@@ -9,3 +9,10 @@ export interface Campaign {
     allow_duplicate: boolean;
     description: string;
 }
+
+export interface ActionProp {
+    disabled?: boolean;
+    modalIsOpen: boolean;
+    openModal: () => void;
+    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}

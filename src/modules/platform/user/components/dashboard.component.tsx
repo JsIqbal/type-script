@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import Charts from "../../admin/components/charts/charts";
+import BarChart from "../../admin/components/charts/bar-chart.component";
 import Nav from "./nav.component";
 import { Table } from "./table.component";
 
@@ -6,7 +7,10 @@ export default function Dashboard() {
     return (
         <>
             <Nav />
-            <Table />
+            <div className="container">
+                <Charts />
+                <Table />
+            </div>
         </>
     );
 }

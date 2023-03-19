@@ -10,6 +10,11 @@ export function Table(): JSX.Element {
     const [disabled, setDisabled] = useState<boolean>(true);
     const [selectedRow, setSelectedRow] = useState<number | null>(null);
     const [campaignList, setCampaignList] = useState<Campaign[]>([]);
+    const [modalIsOpen, setIsOpen] = useState(false);
+
+    function openModal() {
+        setIsOpen(true);
+    }
 
     useEffect(() => {
         fetchCampaignList(setCampaignList);
@@ -21,8 +26,13 @@ export function Table(): JSX.Element {
     }
 
     return (
-        <div className="container mt-5 shadow pt-4 rounded">
-            <TableAction disabled={disabled} />
+        <div className="container mt-2 shadow pt-4 rounded">
+            <TableAction
+                disabled={disabled}
+                modalIsOpen={modalIsOpen}
+                setIsOpen={setIsOpen}
+                openModal={openModal}
+            />
 
             <div className="table-responsive">
                 <table className="table table-bordered table-hover">
