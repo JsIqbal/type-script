@@ -54,6 +54,9 @@ const TableBody = ({
                     }`}
                 >
                     <a
+                        style={{
+                            zIndex: 0,
+                        }}
                         className="page-link"
                         href="#"
                         onClick={() => setCurrentPage(number)}
