@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Prev } from "react-bootstrap/lib/Pagination";
 
 export async function createCampaign(formData: any, closeModal: any) {
     const data = new FormData();
@@ -19,22 +20,21 @@ export async function createCampaign(formData: any, closeModal: any) {
     } catch (err) {}
 }
 
-export const getCampaignList = async () => {
-    let data;
+export const getCampaignList = async (next?: string, prev?: string) => {
     const access_token = `Token ${localStorage.getItem("access")}`;
     let url = "http://127.0.0.1:8000/campaign/campaign-list";
 
-    await axios
-        .get(url, {
-            headers: {
-                Authorization: access_token,
-            },
-        })
-        .then((res) => {
-            data = res.data;
-        });
-    console.log(data);
-    return data;
+    if (next || prev) {
+        url = next ? next : prev ? prev : url;
+    }
+
+    const response = await axios.get(url, {
+        headers: {
+            Authorization: access_token,
+        },
+    });
+
+    return response.data;
 };
 
 export function sortData(data: any) {
@@ -44,11 +44,20 @@ export function sortData(data: any) {
     return d;
 }
 
-export async function fetchCampaignList(setCampaignList: any) {
+export async function fetchCampaignList(
+    setCampaignList: any,
+    setNext: any,
+    setPrev: any,
+    setItemsPerPage: any,
+    next?: any,
+    prev?: any
+) {
     try {
         if (localStorage.getItem("userType") === "Admin") {
-            const res: any = await getCampaignList();
-            console.log("CampaignList", res.results);
+            const res: any = await getCampaignList(next, prev);
+            setNext(res.next);
+            setPrev(res.previous);
+            setItemsPerPage(res.count);
             const data = res.results;
 
             setCampaignList(data);

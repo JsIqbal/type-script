@@ -19,6 +19,12 @@ const TableAction = ({
                 </div>
                 <div className="col-auto justify-content-between">
                     <button
+                        className="btn btn-primary mx-2"
+                        disabled={disabled}
+                    >
+                        Edit
+                    </button>
+                    <button
                         className="btn btn-success mx-2"
                         disabled={disabled}
                     >

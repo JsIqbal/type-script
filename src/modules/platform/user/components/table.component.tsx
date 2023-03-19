@@ -11,13 +11,18 @@ export function Table(): JSX.Element {
     const [selectedRow, setSelectedRow] = useState<number | null>(null);
     const [campaignList, setCampaignList] = useState<Campaign[]>([]);
     const [modalIsOpen, setIsOpen] = useState(false);
+    const [next, setNext] = useState("");
+    const [prev, setPrev] = useState("");
+    const [count, setCount] = useState(null);
+
+    const [itemsPerPage, setItemsPerPage] = useState(10);
 
     function openModal() {
         setIsOpen(true);
     }
 
     useEffect(() => {
-        fetchCampaignList(setCampaignList);
+        fetchCampaignList(setCampaignList, setNext, setPrev, setItemsPerPage);
     }, []);
 
     function handleRowClick(row: Campaign) {
@@ -38,10 +43,19 @@ export function Table(): JSX.Element {
                 <table className="table table-bordered table-hover">
                     <TableHead headers={headers} />
                     <TableBody
+                        itemsPerPage={itemsPerPage}
                         selectedRow={selectedRow}
                         campaignList={campaignList}
                         handleRowClick={handleRowClick}
                         headers={headers}
+                        next={next}
+                        setCampaignList={setCampaignList}
+                        setNext={setNext}
+                        setPrev={setPrev}
+                        setItemsPerPage={setItemsPerPage}
+                        prev={prev}
+                        count={count}
+                        setCount={setCount}
                     />
                 </table>
             </div>

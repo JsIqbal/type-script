@@ -6,15 +6,24 @@ interface Props {
     event?: () => void;
     variant?: string;
     size?: "sm" | "lg";
+    disabled?: boolean;
 }
 
-function ModButton({ className, element, event, variant, size }: Props) {
+function ModButton({
+    className,
+    element,
+    event,
+    variant,
+    size,
+    disabled,
+}: Props) {
     return (
         <Button
             // variant={variant ? variant : "gradient"}
             size={size}
             className={className}
             onClick={event}
+            disabled={disabled}
         >
             {element}
         </Button>
