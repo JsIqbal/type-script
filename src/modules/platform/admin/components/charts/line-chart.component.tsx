@@ -26,12 +26,14 @@ const LineChart: React.FC<LineChartProps> = ({ data }) => {
     ];
 
     return (
-        <ReactApexChart
-            options={options}
-            series={series}
-            type="line"
-            height={300}
-        />
+        <div className="mt-2">
+            <ReactApexChart
+                options={options}
+                series={series}
+                type="line"
+                height={300}
+            />
+        </div>
     );
 };
 

@@ -1,3 +1,4 @@
+import Typography from "../../../../core/common/typography.component";
 import BarChart from "./bar-chart.component";
 import DonutChart from "./donut-chart.component";
 import LineChart from "./line-chart.component";
@@ -24,13 +25,27 @@ const Charts = () => {
     return (
         <div className="chart-container">
             <div className="row">
-                <div className="col-sm-4 chart">
-                    <BarChart data={data1} />
+                <div className="col-sm-4 chart card">
+                    <div className="card-body">
+                        <Typography
+                            className="fw-semibold mb-2"
+                            element={"Total BA"}
+                        />
+                        <BarChart data={data1} />
+                    </div>
                 </div>
-                <div className="col-sm-4">
+                <div className="col-sm-4 text-center">
+                    <Typography
+                        className="fw-semibold mb-2"
+                        element={"Impressions/Hour"}
+                    />
                     <LineChart data={data2} />
                 </div>
-                <div className="col-sm-4 chart">
+                <div className="col-sm-4 chart card text-center">
+                    <Typography
+                        className="fw-semibold pt-3"
+                        element={"Impressions/Campaign"}
+                    />
                     <DonutChart />
                 </div>
             </div>

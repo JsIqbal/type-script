@@ -77,7 +77,7 @@ function DonutChart({
     };
 
     return (
-        <div id="chart">
+        <div id="chart" className="mt-4">
             <ReactApexChart
                 options={initials.chartOptions}
                 series={initials.series}

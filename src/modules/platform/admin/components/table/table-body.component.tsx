@@ -12,6 +12,7 @@ const TableBody = ({
     setPrev,
     setItemsPerPagenext,
     prev,
+    setItem,
 }: any) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(10);
@@ -97,7 +98,10 @@ const TableBody = ({
                                 ? "table-primary"
                                 : "table-light"
                         }
-                        onClick={() => handleRowClick(item)}
+                        onClick={() => {
+                            handleRowClick(item);
+                            setItem(item);
+                        }}
                     >
                         {headers.map((header: any) => (
                             <td key={header} className="align-middle pt-0 pb-0">

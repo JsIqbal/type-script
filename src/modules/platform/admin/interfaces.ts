@@ -15,4 +15,5 @@ export interface ActionProp {
     modalIsOpen: boolean;
     openModal: () => void;
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    item?: any;
 }

@@ -28,12 +28,14 @@ const BarChart: React.FC<ChartProps> = ({ data }) => {
     ];
 
     return (
-        <ReactApexChart
-            options={chartOptions}
-            series={series}
-            type="bar"
-            height={300}
-        />
+        <div className="mt-2">
+            <ReactApexChart
+                options={chartOptions}
+                series={series}
+                type="bar"
+                height={300}
+            />
+        </div>
     );
 };
 

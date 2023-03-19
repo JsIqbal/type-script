@@ -15,6 +15,8 @@ export function Table(): JSX.Element {
     const [prev, setPrev] = useState("");
     const [count, setCount] = useState(null);
 
+    const [item, setItem] = useState({});
+
     const [itemsPerPage, setItemsPerPage] = useState(10);
 
     function handleRowClick(row: Campaign) {
@@ -33,6 +35,7 @@ export function Table(): JSX.Element {
                 modalIsOpen={modalIsOpen}
                 setIsOpen={setIsOpen}
                 openModal={() => setIsOpen(true)}
+                item={item}
             />
 
             <div className="table-responsive">
@@ -52,6 +55,7 @@ export function Table(): JSX.Element {
                         prev={prev}
                         count={count}
                         setCount={setCount}
+                        setItem={setItem}
                     />
                 </table>
             </div>
