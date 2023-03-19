@@ -31,3 +31,18 @@
     font-family: "Righteous", cursive;
     font-size: 35px;
 }
+
+.payment-modal__close-btn {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    border: none;
+    background-color: transparent;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+}
+
+.payment-modal__close-btn:hover {
+    color: #007bff;
+}

@@ -2,6 +2,7 @@ import { Navbar } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import Button from "../../../core/common/button.component";
 import Typography from "../../../core/common/typography.component";
+import { logout } from "../../../core/svg/all.svg";
 
 const Nav: React.FC = () => {
     const [isTop, setIsTop] = useState(true);
@@ -9,7 +10,7 @@ const Nav: React.FC = () => {
 
     useEffect(() => {
         document.addEventListener("scroll", () => {
-            const top = window.scrollY < 100;
+            const top = window.scrollY < 60;
             if (top !== isTop) {
                 setIsTop(top);
             }
@@ -25,11 +26,12 @@ const Nav: React.FC = () => {
             <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
                 <Typography className="typo-graphy" element={"QIKCHECK"} />
                 <Button
+                    className="bg-dark border-0 text-danger"
                     event={() => {
                         localStorage.clear();
                         window.location.href = "/";
                     }}
-                    element={"Logout"}
+                    element={logout}
                 />
             </div>
         </Navbar>

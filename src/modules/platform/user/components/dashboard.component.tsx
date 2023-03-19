@@ -1,5 +1,5 @@
+import Footer from "../../../core/common/footer.component";
 import Charts from "../../admin/components/charts/charts";
-import BarChart from "../../admin/components/charts/bar-chart.component";
 import Nav from "./nav.component";
 import { Table } from "./table.component";
 
@@ -11,6 +11,7 @@ export default function Dashboard() {
                 <Charts />
                 <Table />
             </div>
+            <Footer />
         </>
     );
 }

@@ -62,7 +62,7 @@ export async function fetchCampaignList(setCampaignList: any) {
         if (localStorage.getItem("userType") === "Admin") {
             const res: any = await getCampaignList();
             console.log("CampaignList", res.results);
-            const data = sortData(res.results);
+            const data = res.results;
 
             setCampaignList(data);
         }

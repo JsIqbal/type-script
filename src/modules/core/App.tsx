@@ -25,7 +25,7 @@ export default function App() {
                 <Route
                     path="/"
                     element={
-                        <div className=" mb-5">
+                        <div>
                             <AdminRoute isAdmin={isAdmin}>
                                 <Outlet />
                             </AdminRoute>
