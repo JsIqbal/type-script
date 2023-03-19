@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Routes, Route, Navigate, Outlet } from "react-router-dom";
 
 import { useState } from "react";
-import Dashboard from "../platform/user/components/dashboard.component";
+import Dashboard from "../platform/admin/components/dashboard.component";
 import Login from "../platform/user/components/login.component";
 import AdminRoute from "../platform/admin/admin.routes";
 import PublicRoute from "./public.routes";

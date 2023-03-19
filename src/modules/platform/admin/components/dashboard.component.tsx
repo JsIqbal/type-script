@@ -1,7 +1,7 @@
 import Footer from "../../../core/common/footer.component";
-import Charts from "../../admin/components/charts/charts";
+import Charts from "./charts/charts";
 import Nav from "./nav.component";
-import { Table } from "./table.component";
+import { Table } from "./table/table.component";
 
 export default function Dashboard() {
     return (

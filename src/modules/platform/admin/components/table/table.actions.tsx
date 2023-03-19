@@ -1,5 +1,5 @@
-import { CreateCampaignModal } from "../../admin/components/modal/modal.component";
-import { ActionProp } from "../interfaces";
+import { CreateCampaignModal } from "../modal/modal.component";
+import { ActionProp } from "../../interfaces";
 
 const TableAction = ({
     disabled,

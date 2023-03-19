@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { fetchCampaignList } from "../../admin/admin.actions";
+import { fetchCampaignList } from "../../admin.actions";
 
 const TableBody = ({
     selectedRow,

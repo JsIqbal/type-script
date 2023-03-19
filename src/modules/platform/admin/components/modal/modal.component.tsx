@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import { ActionProp } from "../../../user/interfaces";
+import { ActionProp } from "../../interfaces";
 import { createCampaign } from "../../admin.actions";
 import { customStyles } from "../../admin.style";
 import ModalForm from "./modal.form";
