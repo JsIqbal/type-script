@@ -17,18 +17,14 @@ export function Table(): JSX.Element {
 
     const [itemsPerPage, setItemsPerPage] = useState(10);
 
-    function openModal() {
-        setIsOpen(true);
+    function handleRowClick(row: Campaign) {
+        setSelectedRow(row.id);
+        setDisabled(false);
     }
 
     useEffect(() => {
         fetchCampaignList(setCampaignList, setNext, setPrev, setItemsPerPage);
     }, []);
-
-    function handleRowClick(row: Campaign) {
-        setSelectedRow(row.id);
-        setDisabled(false);
-    }
 
     return (
         <div className="container mt-2 shadow pt-4 rounded">
@@ -36,7 +32,7 @@ export function Table(): JSX.Element {
                 disabled={disabled}
                 modalIsOpen={modalIsOpen}
                 setIsOpen={setIsOpen}
-                openModal={openModal}
+                openModal={() => setIsOpen(true)}
             />
 
             <div className="table-responsive">

@@ -1,36 +1,5 @@
-// const TableBody = ({
-//     selectedRow,
-//     campaignList,
-//     handleRowClick,
-//     headers,
-// }: any) => {
-//     return (
-//         <tbody>
-//             {campaignList.map((item: any) => (
-//                 <tr
-//                     key={item.id}
-//                     className={
-//                         selectedRow === item.id
-//                             ? "table-primary"
-//                             : "table-light"
-//                     }
-//                     onClick={() => handleRowClick(item)}
-//                 >
-//                     {headers.map((header: any) => (
-//                         <td key={header} className="align-middle pt-0 pb-0">
-//                             {item[header]}
-//                         </td>
-//                     ))}
-//                 </tr>
-//             ))}
-//         </tbody>
-//     );
-// };
-
-// export default TableBody;
-
-import React, { useState } from "react";
-import { fetchCampaignList, getCampaignList } from "../../admin/admin.actions";
+import { useState } from "react";
+import { fetchCampaignList } from "../../admin/admin.actions";
 
 const TableBody = ({
     selectedRow,
