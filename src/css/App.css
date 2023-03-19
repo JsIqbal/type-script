@@ -46,3 +46,11 @@
 .payment-modal__close-btn:hover {
     color: #007bff;
 }
+
+.ReactModal__Overlay--after-open {
+    background-color: rgb(78 63 64 / 51%) !important;
+}
+
+.apexcharts-toolbar {
+    z-index: 0 !important;
+}

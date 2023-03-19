@@ -14,15 +14,3 @@ function PrivateRoute({ children }: PrivateRouteProps): ReactElement {
 }
 
 export default PrivateRoute;
-
-// import { Navigate } from "react-router-dom";
-// import { toast } from "react-toastify";
-
-// const AdminRoute = ({ isAdmin, children }) => {
-//     if (!isAdmin) {
-//         toast.error("You are not an ADMIN!", { toastId: "success1" });
-//         return <Navigate to="/" replace />;
-//     }
-//     return children;
-// };
-// export default AdminRoute;

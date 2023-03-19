@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchCampaignList } from "../user.actions";
+import { fetchCampaignList } from "../../admin/admin.actions";
 import TableAction from "./table.actions";
 import { headers } from "../headers";
 import { Campaign } from "../interfaces";

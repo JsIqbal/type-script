@@ -1,7 +1,7 @@
-import { Formik, Form, Field, ErrorMessage, FormikHelpers } from "formik";
-import { useNavigate } from "react-router-dom";
+import { Formik, FormikHelpers } from "formik";
 import { login } from "../user.actions";
 import { loginSchema } from "../user.schema";
+import LoginForm from "./login-form.component";
 
 interface FormValues {
     username: string;
@@ -9,7 +9,6 @@ interface FormValues {
 }
 
 const Login: React.FC = () => {
-    const navigate = useNavigate();
     const initialValues = { username: "", password: "" };
 
     const handleSubmit = async (
@@ -34,43 +33,7 @@ const Login: React.FC = () => {
                     onSubmit={handleSubmit}
                 >
                     {({ isSubmitting }) => (
-                        <Form>
-                            <div className="form-group">
-                                <label htmlFor="email">Username</label>
-                                <Field
-                                    type="username"
-                                    name="username"
-                                    className="form-control"
-                                    placeholder="user name"
-                                />
-                                <ErrorMessage
-                                    name="username"
-                                    component="div"
-                                    className="text-danger"
-                                />
-                            </div>
-                            <div className="form-group mb-2">
-                                <label htmlFor="password">Password</label>
-                                <Field
-                                    type="password"
-                                    name="password"
-                                    className="form-control"
-                                    placeholder="Enter password"
-                                />
-                                <ErrorMessage
-                                    name="password"
-                                    component="div"
-                                    className="text-danger"
-                                />
-                            </div>
-                            <button
-                                type="submit"
-                                disabled={isSubmitting}
-                                className="btn btn-primary"
-                            >
-                                {isSubmitting ? "Loading..." : "Login"}
-                            </button>
-                        </Form>
+                        <LoginForm isSubmitting={isSubmitting} />
                     )}
                 </Formik>
             </div>
