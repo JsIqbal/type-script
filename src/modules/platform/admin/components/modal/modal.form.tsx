@@ -24,6 +24,7 @@ const ModalForm = ({
                     id="status"
                     name="status"
                     onChange={handleSelectChange}
+                    disabled={true}
                 >
                     <option value="PENDING">Pending</option>
                     <option value="RUNNING">Running</option>

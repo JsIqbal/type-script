@@ -24,7 +24,7 @@ const Login: React.FC = () => {
     };
 
     return (
-        <div className="container-fluid vh-100 d-flex justify-content-center align-items-center">
+        <div className="container-fluid vh-100 d-flex justify-content-center align-items-center login-background">
             <div className="card p-3" style={{ borderRadius: "10px" }}>
                 <h2 className="text-center mb-4">QikCheck</h2>
                 <Formik
