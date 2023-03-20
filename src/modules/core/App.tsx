@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Routes, Route, Navigate, Outlet } from "react-router-dom";
 
 import { Login, userActions, AdminDashboard, AdminRoute } from "../platform";
-import { PublicRoute } from "./index";
+import { PublicRoute } from "./";
 
 export default function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
