@@ -1,10 +1,11 @@
 import { Form, Field, ErrorMessage } from "formik";
+import Label from "../../../core/common/label-element.component";
 
 const LoginForm = ({ isSubmitting }: any) => {
     return (
         <Form>
             <div className="form-group">
-                <label htmlFor="email">Username</label>
+                <Label htmlFor="email" title="Username" />
                 <Field
                     type="username"
                     name="username"
@@ -18,7 +19,7 @@ const LoginForm = ({ isSubmitting }: any) => {
                 />
             </div>
             <div className="form-group mb-2">
-                <label htmlFor="password">Password</label>
+                <Label htmlFor="password" title="Password" />
                 <Field
                     type="password"
                     name="password"
