@@ -11,7 +11,7 @@ function ModButton({
 }: ButtonProps) {
     return (
         <Button
-            // variant={variant ? variant : "gradient"}
+            variant={variant ? variant : "primary"}
             size={size}
             className={className}
             onClick={event}

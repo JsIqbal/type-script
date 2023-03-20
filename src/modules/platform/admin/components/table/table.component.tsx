@@ -9,12 +9,12 @@ export function Table(): JSX.Element {
     const [selectedRow, setSelectedRow] = useState<number | null>(null);
     const [campaignList, setCampaignList] = useState<interfaces.Campaign[]>([]);
     const [modalIsOpen, setIsOpen] = useState(false);
+
     const [next, setNext] = useState("");
     const [prev, setPrev] = useState("");
     const [count, setCount] = useState(null);
 
     const [item, setItem] = useState({});
-
     const [itemsPerPage, setItemsPerPage] = useState(10);
 
     function handleRowClick(row: interfaces.Campaign) {

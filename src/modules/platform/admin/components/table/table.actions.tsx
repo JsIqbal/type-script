@@ -20,7 +20,6 @@ const TableAction = ({
                 </div>
                 <div className="col-auto justify-content-between">
                     <input
-                        // className="btn btn-secondary mx-2"
                         disabled={true}
                         placeholder={item ? item.name : "selected user"}
                     />
