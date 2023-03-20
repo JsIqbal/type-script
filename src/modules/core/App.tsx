@@ -15,6 +15,8 @@ export default function App() {
     const [isAdmin, setIsAdmin] = useState(false);
     const [isBa, setIsBa] = useState(false);
 
+    // const user =
+
     useEffect(() => {
         handleUserType(setIsLoggedIn, setIsBa, setIsAdmin);
     }, []);

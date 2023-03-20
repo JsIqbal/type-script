@@ -1,13 +1,5 @@
 import { Button } from "react-bootstrap";
-
-interface Props {
-    className?: string;
-    element?: React.ReactNode;
-    event?: () => void;
-    variant?: string;
-    size?: "sm" | "lg";
-    disabled?: boolean;
-}
+import { ButtonProps } from "../interface";
 
 function ModButton({
     className,
@@ -16,7 +8,7 @@ function ModButton({
     variant,
     size,
     disabled,
-}: Props) {
+}: ButtonProps) {
     return (
         <Button
             // variant={variant ? variant : "gradient"}

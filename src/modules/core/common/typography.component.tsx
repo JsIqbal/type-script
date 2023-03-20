@@ -1,12 +1,13 @@
-interface Typo extends React.HTMLAttributes<HTMLSpanElement> {
-    element?: React.ReactNode;
-    className?: string;
-    color?: string;
-    variant?: string;
-    as?: string;
-}
+import { TypoProps } from "../interface";
 
-function Typography({ element, className, color, variant, as, ...rest }: Typo) {
+function Typography({
+    element,
+    className,
+    color,
+    variant,
+    as,
+    ...rest
+}: TypoProps) {
     return (
         <span
             {...rest}

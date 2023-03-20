@@ -1,5 +1,4 @@
 import axios from "axios";
-import { Prev } from "react-bootstrap/lib/Pagination";
 
 export async function createCampaign(formData: any, closeModal: any) {
     const data = new FormData();

@@ -1,5 +1,5 @@
 import { CreateCampaignModal } from "../modal/modal.component";
-import { ActionProp } from "../../interfaces";
+import { ActionProp } from "../../interface";
 
 const TableAction = ({
     disabled,
