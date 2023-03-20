@@ -13,7 +13,6 @@ export function CreateCampaignModal({
     openModal,
     disabled,
 }: ActionProp) {
-    let subtitle: any;
     const [formData, setFormData] = useState({
         name: "",
         status: "PENDING",
@@ -33,7 +32,6 @@ export function CreateCampaignModal({
             <ModButton element={"Create Campaign"} event={openModal} />
             <Modal
                 isOpen={modalIsOpen}
-                onAfterOpen={() => (subtitle.style.color = "#f00")}
                 onRequestClose={() => setIsOpen(false)}
                 style={customStyles}
                 contentLabel="Example Modal"
@@ -44,7 +42,6 @@ export function CreateCampaignModal({
                 >
                     <span>&times;</span>
                 </button>
-                <h2 ref={(_subtitle) => (subtitle = _subtitle)}></h2>
                 <ModalForm
                     createCampaign={createCampaign}
                     formData={formData}
