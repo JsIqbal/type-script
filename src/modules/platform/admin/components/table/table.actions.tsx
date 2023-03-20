@@ -1,5 +1,5 @@
 import { CreateCampaignModal } from "../modal/modal.component";
-import { ActionProp } from "../../interface";
+import { interfaces } from "../../";
 
 const TableAction = ({
     disabled,
@@ -7,7 +7,7 @@ const TableAction = ({
     openModal,
     setIsOpen,
     item,
-}: ActionProp) => {
+}: interfaces.ActionProp) => {
     return (
         <div className="row ">
             <div className="col d-flex justify-content-between align-items-center mb-4">

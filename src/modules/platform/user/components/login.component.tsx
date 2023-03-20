@@ -1,9 +1,8 @@
 import { Formik, FormikHelpers } from "formik";
-import { login } from "../user.actions";
-import { loginSchema } from "../user.schema";
+import { Typography } from "../../../core";
+import { userActions, loginSchema } from "..";
 import LoginForm from "./login-form.component";
 import { FormValues } from "../interface";
-import Typography from "../../../core/common/typography.component";
 
 const Login: React.FC = () => {
     const initialValues = { username: "", password: "" };
@@ -12,7 +11,7 @@ const Login: React.FC = () => {
         values: FormValues,
         actions: FormikHelpers<FormValues>
     ) => {
-        await login(values).then((response: any) => {
+        await userActions.login(values).then((response: any) => {
             localStorage.setItem("userType", response.data.userType);
             localStorage.setItem("access", response.data.access);
             window.location.href = "/";
@@ -41,4 +40,4 @@ const Login: React.FC = () => {
     );
 };
 
-export default Login;
+export { Login };

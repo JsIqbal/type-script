@@ -1,4 +1,4 @@
-import Footer from "../../../core/common/footer.component";
+import { Footer } from "../../../core";
 import Charts from "./charts/charts";
 import Nav from "./nav.component";
 import { Table } from "./table/table.component";

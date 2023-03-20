@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import { ActionProp } from "../../interface";
-import { createCampaign } from "../../admin.actions";
+import { adminActions, interfaces } from "../..";
 import { customStyles } from "../../admin.style";
 import ModalForm from "./modal.form";
 import ModButton from "../../../../core/common/button.component";
@@ -12,7 +11,7 @@ export function CreateCampaignModal({
     setIsOpen,
     openModal,
     disabled,
-}: ActionProp) {
+}: interfaces.ActionProp) {
     const [formData, setFormData] = useState({
         name: "",
         status: "PENDING",
@@ -43,7 +42,7 @@ export function CreateCampaignModal({
                     <span>&times;</span>
                 </button>
                 <ModalForm
-                    createCampaign={createCampaign}
+                    createCampaign={adminActions.createCampaign}
                     formData={formData}
                     setIsOpen={setIsOpen}
                     handleInputChange={handleInputChange}

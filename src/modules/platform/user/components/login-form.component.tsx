@@ -1,5 +1,5 @@
 import { Form, Field, ErrorMessage } from "formik";
-import Label from "../../../core/common/label-element.component";
+import { Label } from "../../../core";
 
 const LoginForm = ({ isSubmitting }: any) => {
     return (

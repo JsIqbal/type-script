@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { fetchCampaignList } from "../../admin.actions";
+import { adminActions } from "../..";
 
 const TableBody = ({
     selectedRow,
@@ -35,7 +35,7 @@ const TableBody = ({
                     className="page-link"
                     href="#"
                     onClick={() => {
-                        fetchCampaignList(
+                        adminActions.fetchCampaignList(
                             setCampaignList,
                             setNext,
                             setPrev,
@@ -72,7 +72,7 @@ const TableBody = ({
                     href="#"
                     onClick={() => {
                         setCurrentPage(currentPage + 1);
-                        fetchCampaignList(
+                        adminActions.fetchCampaignList(
                             setCampaignList,
                             setNext,
                             setPrev,

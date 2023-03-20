@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react";
-import { fetchCampaignList } from "../../admin.actions";
+import { adminActions, thead, interfaces } from "../..";
 import TableAction from "./table.actions";
-import { headers } from "../../headers";
-import { Campaign } from "../../interface";
 import TableHead from "./table-head.component";
 import TableBody from "./table-body.component";
 
 export function Table(): JSX.Element {
     const [disabled, setDisabled] = useState<boolean>(true);
     const [selectedRow, setSelectedRow] = useState<number | null>(null);
-    const [campaignList, setCampaignList] = useState<Campaign[]>([]);
+    const [campaignList, setCampaignList] = useState<interfaces.Campaign[]>([]);
     const [modalIsOpen, setIsOpen] = useState(false);
     const [next, setNext] = useState("");
     const [prev, setPrev] = useState("");
@@ -19,13 +17,18 @@ export function Table(): JSX.Element {
 
     const [itemsPerPage, setItemsPerPage] = useState(10);
 
-    function handleRowClick(row: Campaign) {
+    function handleRowClick(row: interfaces.Campaign) {
         setSelectedRow(row.id);
         setDisabled(false);
     }
 
     useEffect(() => {
-        fetchCampaignList(setCampaignList, setNext, setPrev, setItemsPerPage);
+        adminActions.fetchCampaignList(
+            setCampaignList,
+            setNext,
+            setPrev,
+            setItemsPerPage
+        );
     }, []);
 
     return (
@@ -40,13 +43,13 @@ export function Table(): JSX.Element {
 
             <div className="table-responsive">
                 <table className="table table-bordered table-hover">
-                    <TableHead headers={headers} />
+                    <TableHead headers={thead.headers} />
                     <TableBody
                         itemsPerPage={itemsPerPage}
                         selectedRow={selectedRow}
                         campaignList={campaignList}
                         handleRowClick={handleRowClick}
-                        headers={headers}
+                        headers={thead.headers}
                         next={next}
                         setCampaignList={setCampaignList}
                         setNext={setNext}

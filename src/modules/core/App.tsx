@@ -1,24 +1,16 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Routes, Route, Navigate, Outlet } from "react-router-dom";
 
-import { useState } from "react";
-import Dashboard from "../platform/admin/components/dashboard.component";
-import Login from "../platform/user/components/login.component";
-import AdminRoute from "../platform/admin/admin.routes";
-import PublicRoute from "./public.routes";
-import { handleUserType } from "../platform/user/user.actions";
-import "../../css/App.css";
-// import BaRoute from "../platform/ba/ba.routes";
+import { Login, userActions, AdminDashboard, AdminRoute } from "../platform";
+import { PublicRoute } from "./index";
 
 export default function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
     const [isBa, setIsBa] = useState(false);
 
-    // const user =
-
     useEffect(() => {
-        handleUserType(setIsLoggedIn, setIsBa, setIsAdmin);
+        userActions.handleUserType(setIsLoggedIn, setIsBa, setIsAdmin);
     }, []);
 
     return (
@@ -34,23 +26,9 @@ export default function App() {
                         </div>
                     }
                 >
-                    <Route path="/" element={<Dashboard />} />
+                    <Route path="/" element={<AdminDashboard />} />
                 </Route>
             )}
-            {/* {isLoggedIn && isBa && !isAdmin && (
-                <Route
-                    path="/"
-                    element={
-                        <div className="mainContainer">
-                            <BaRoute isBa={isBa} isLoggedIn={isLoggedIn}>
-                                <Outlet />
-                            </BaRoute>
-                        </div>
-                    }
-                >
-                    <Route path="/" element={<Dashboard />} />
-                </Route>
-            )} */}
             <Route path="/" element={<Navigate to="/login" />} />
             <Route
                 path="/login"

@@ -1,4 +1,4 @@
-import Typography from "../../../../core/common/typography.component";
+import { Typography } from "../../../../core";
 import BarChart from "./bar-chart.component";
 import DonutChart from "./donut-chart.component";
 import LineChart from "./line-chart.component";
