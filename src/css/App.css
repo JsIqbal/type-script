@@ -101,3 +101,10 @@
 .navbar-transition {
     transition: all 0.3s ease-in-out;
 }
+
+.question-modal-heading {
+    font-size: 14px;
+    text-align: center;
+    display: block;
+    font-weight: bold;
+}

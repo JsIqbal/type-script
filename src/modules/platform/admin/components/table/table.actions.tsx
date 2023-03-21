@@ -1,6 +1,8 @@
 import { CreateCampaignModal } from "../modal/modal.component";
 import { interfaces } from "../../";
 import { svgIcon } from "../../../../core";
+import { useState } from "react";
+import { AddQuestion } from "../modal/add-question.modal";
 
 const TableAction = ({
     disabled,
@@ -9,7 +11,7 @@ const TableAction = ({
     setIsOpen,
     item,
 }: interfaces.ActionProp) => {
-    console.log(item);
+    const [questionOpen, setQuestionOpen] = useState<boolean>(false);
     return (
         <div className="row">
             <div className="col-12 col-md-6 d-flex justify-content-start mb-4">
@@ -31,8 +33,10 @@ const TableAction = ({
                     <button
                         className="btn btn-primary mx-2"
                         disabled={disabled}
+                        onClick={() => setQuestionOpen(true)}
                     >
-                        {svgIcon.question}
+                        {/* {svgIcon.question} */}
+                        QUESTION+
                     </button>
                     <button className="btn btn-success" disabled={disabled}>
                         {item.status === "RUNNING" || null
@@ -41,6 +45,11 @@ const TableAction = ({
                     </button>
                 </div>
             </div>
+            <AddQuestion
+                item={item}
+                questionOpen={questionOpen}
+                setQuestionOpen={setQuestionOpen}
+            />
         </div>
     );
 };
