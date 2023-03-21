@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { adminActions } from "../..";
+import { svgIcon } from "../../../../core";
 
 const TableBody = ({
     selectedRow,
@@ -33,7 +34,6 @@ const TableBody = ({
             <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
                 <a
                     className="page-link"
-                    href="#"
                     onClick={() => {
                         adminActions.fetchCampaignList(
                             setCampaignList,
@@ -44,32 +44,29 @@ const TableBody = ({
                         );
                     }}
                 >
-                    Previous
+                    {svgIcon.previous}
                 </a>
             </li>
-            {pageNumbers.map((number) => (
-                <li
-                    key={number}
-                    className={`page-item ${
-                        currentPage === number ? "active" : ""
-                    }`}
-                >
+            {
+                <li className={`page-item `}>
                     <a
                         style={{
                             zIndex: 0,
                         }}
                         className="page-link"
-                        href="#"
-                        onClick={() => setCurrentPage(number)}
                     >
-                        {number}
+                        1
                     </a>
                 </li>
-            ))}
-            <li>
-                <a
-                    className="page-link"
-                    href="#"
+            }
+            <li className="page-item">
+                <button
+                    className={
+                        next === null
+                            ? "disabled page-link"
+                            : "active page-link"
+                    }
+                    disabled={next === null ? true : false}
                     onClick={() => {
                         setCurrentPage(currentPage + 1);
                         adminActions.fetchCampaignList(
@@ -81,8 +78,8 @@ const TableBody = ({
                         );
                     }}
                 >
-                    Next
-                </a>
+                    {svgIcon.next}
+                </button>
             </li>
         </>
     );

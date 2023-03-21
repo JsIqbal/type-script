@@ -32,7 +32,7 @@ export const getCampaignList = async (next?: string, prev?: string) => {
             Authorization: access_token,
         },
     });
-
+    console.log(response);
     return response.data;
 };
 

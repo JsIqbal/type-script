@@ -1,29 +1,105 @@
+// import React from "react";
+// import ReactApexChart from "react-apexcharts";
+// import useCampaignData from "../hooks/useCampaignData";
+
+// interface ChartData {
+//     x: string;
+//     y: number;
+// }
+
+// interface ChartData {
+//     x: string;
+//     y: number;
+// }
+
+// interface ChartProps {
+//     data: ChartData[];
+// }
+
+// const BarChart: React.FC<ChartProps> = ({ data }) => {
+//     const chartOptions = {
+//         chart: {
+//             id: "basic-bar",
+//         },
+//         xaxis: {
+//             categories: data.map((item) => item.x),
+//         },
+//     };
+
+//     const series = [
+//         {
+//             name: "Series 1",
+//             data: data.map((item) => item.y),
+//         },
+//     ];
+
+//     return (
+//         <div className="mt-2">
+//             <ReactApexChart
+//                 options={chartOptions}
+//                 series={series}
+//                 type="bar"
+//                 height={300}
+//             />
+//         </div>
+//     );
+// };
+
+// export default BarChart;
+
 import React from "react";
 import ReactApexChart from "react-apexcharts";
+import useCampaignData from "../hooks/useCampaignData";
 
 interface ChartData {
     x: string;
     y: number;
 }
 
-interface ChartProps {
-    data: ChartData[];
-}
+const BarChart: React.FC = () => {
+    const { data, loading } = useCampaignData();
 
-const BarChart: React.FC<ChartProps> = ({ data }) => {
-    const chartOptions = {
+    if (loading || !data) {
+        return <div>Loading...</div>;
+    }
+
+    const { campaignImpression }: any = data;
+
+    const chartData: ChartData[] = campaignImpression
+        ? campaignImpression.map((item: any) => ({
+              x: item.name,
+              y: item.impression,
+          }))
+        : [];
+
+    const chartOptions: any = {
         chart: {
             id: "basic-bar",
         },
         xaxis: {
-            categories: data.map((item) => item.x),
+            labels: {
+                style: {
+                    fontSize: "14px",
+                },
+            },
+            categories: chartData.map((item) => item.x),
+        },
+        yaxis: {
+            labels: {
+                style: {
+                    fontSize: "14px",
+                },
+            },
+        },
+        grid: {
+            show: false,
         },
     };
 
     const series = [
         {
-            name: "Series 1",
-            data: data.map((item) => item.y),
+            name: "Impression",
+            data: chartData.map((item) => item.y),
         },
     ];
 
