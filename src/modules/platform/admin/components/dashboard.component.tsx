@@ -21,9 +21,9 @@ export default function Dashboard() {
                         </div>
                         <Table />
                     </div>
-                    <Footer />
                 </div>
             </div>
+            <Footer />
         </>
     );
 }
