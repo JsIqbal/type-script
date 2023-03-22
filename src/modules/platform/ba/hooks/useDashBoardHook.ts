@@ -1,25 +1,26 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-
-interface CampaignData {
-    campaignReport?: {
-        total_campaign: "";
-        total_impression: "";
-    };
-    userReport?: {
-        total_ba: "";
-    };
+// userReport
+interface DashBoardData {
+    username: "";
+    campaigns: "";
+    region: "";
+    area: "";
+    teritorry: "";
+    contact: "";
+    Impression: null;
 }
 
-const useCampaignData = () => {
-    const [data, setData] = useState<CampaignData | null>(null);
+const useDashBoardHook = () => {
+    const [data, setData] = useState<DashBoardData | null>(null);
     const [loading, setLoading] = useState(true);
     const access_token = `Token ${localStorage.getItem("access")}`;
+    const [error, setError] = useState("");
     useEffect(() => {
-        const fetchCampaignData = async () => {
+        const fetchDashData = async () => {
             try {
                 const response = await axios.get(
-                    "http://127.0.0.1:8000/campaign/dashboard/",
+                    "http://127.0.0.1:8000/campaign/self-dashboard/",
                     {
                         headers: {
                             Authorization: access_token,
@@ -28,15 +29,15 @@ const useCampaignData = () => {
                 );
                 setData(response.data);
             } catch (error) {
-                setData({});
+                console.log(error);
             } finally {
                 setLoading(false);
             }
         };
-        fetchCampaignData();
+        fetchDashData();
     }, []);
 
-    return { data, loading };
+    return { data, loading, error };
 };
 
-export default useCampaignData;
+export default useDashBoardHook;

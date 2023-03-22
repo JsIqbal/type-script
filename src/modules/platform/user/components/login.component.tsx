@@ -1,23 +1,11 @@
-import { Formik, FormikHelpers } from "formik";
+import { Formik } from "formik";
 import { Typography } from "../../../core";
-import { userActions, loginSchema } from "..";
+import { loginSchema } from "..";
 import LoginForm from "./login-form.component";
-import { FormValues } from "../interface";
+import useLogin from "../hooks/useLogin";
 
 const Login: React.FC = () => {
-    const initialValues = { username: "", password: "" };
-
-    const handleSubmit = async (
-        values: FormValues,
-        actions: FormikHelpers<FormValues>
-    ) => {
-        await userActions.login(values).then((response: any) => {
-            localStorage.setItem("userType", response.data.userType);
-            localStorage.setItem("access", response.data.access);
-            window.location.href = "/";
-        });
-        actions.setSubmitting(false);
-    };
+    const { initialValues, handleSubmit } = useLogin();
 
     return (
         <div className="container-fluid vh-100 d-flex justify-content-center align-items-center login-background">

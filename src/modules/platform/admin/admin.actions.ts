@@ -1,4 +1,5 @@
 import axios from "axios";
+import { error, success } from "../../core/common/toaster";
 
 export async function createCampaign(formData: any, closeModal: any) {
     const data = new FormData();
@@ -15,8 +16,11 @@ export async function createCampaign(formData: any, closeModal: any) {
                 },
             }
         );
+        success();
         closeModal();
-    } catch (err) {}
+    } catch (err) {
+        error();
+    }
 }
 
 export const getCampaignList = async (next?: string, prev?: string) => {

@@ -1,4 +1,5 @@
 import axios from "axios";
+import { success } from "../../core/common/toaster";
 
 export async function login(loginData: any) {
     const data = new FormData();
@@ -10,7 +11,9 @@ export async function login(loginData: any) {
             data
         );
         return res;
-    } catch (err) {}
+    } catch (err) {
+        window.location.href = "/";
+    }
 }
 
 export function handleUserType(

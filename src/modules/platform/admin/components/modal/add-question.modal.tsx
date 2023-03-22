@@ -1,57 +1,20 @@
-import axios from "axios";
-import { useState } from "react";
 import Modal from "react-modal";
 import { customStyles } from "../../admin.style";
 import { Typography } from "../../../../core";
+import { useAddQuestion } from "../hooks/useAddQuestion";
 
 Modal.setAppElement("#root");
 
 export function AddQuestion({ questionOpen, setQuestionOpen, item }: any) {
-    const [selectedOption, setSelectedOption] = useState("Text");
-    const [inputOption, setInputOption] = useState("");
-    const [choices, setChoices] = useState<string[]>([]);
-
-    const handleOptionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        setSelectedOption(e.target.value);
-    };
-
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setInputOption(e.target.value);
-    };
-
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        const access_token = `Token ${localStorage.getItem("access")}`;
-        const url = "http://127.0.0.1:8000/campaign/create-questions/";
-        const config = {
-            headers: {
-                Authorization: access_token,
-            },
-        };
-        const data = new FormData();
-        data.append("campaignName", item.name);
-        data.append("type", selectedOption);
-        data.append("question", inputOption);
-        if (selectedOption === "Multiple Choice") {
-            data.append("choices[]", JSON.stringify(choices));
-        }
-
-        try {
-            console.log("----------------------", data);
-            const response = await axios.post(url, data, config);
-            console.log(response.data);
-        } catch (error) {
-            console.error(error);
-        }
-    };
-
-    const handleChoicesChange = (
-        event: React.ChangeEvent<HTMLInputElement>
-    ) => {
-        const input = event.target.value;
-        const inputArray = input.split(",");
-        setChoices(inputArray);
-    };
+    const {
+        selectedOption,
+        inputOption,
+        choices,
+        handleOptionChange,
+        handleInputChange,
+        handleChoicesChange,
+        handleSubmit,
+    } = useAddQuestion(item);
 
     return (
         <div>
