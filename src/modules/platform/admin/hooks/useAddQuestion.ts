@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { success, error } from "../../../../core/common/toaster";
+import { success, error } from "../../../core/common/toaster";
 
 export const useAddQuestion = (item: any) => {
     const [selectedOption, setSelectedOption] = useState("Text");

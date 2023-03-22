@@ -1,7 +1,7 @@
 import { Navbar } from "react-bootstrap";
 
 import { ModButton, Typography, svgIcon } from "../../../core";
-import { useNavHook } from "./hooks/useNavHook";
+import { useNavHook } from "../hooks/useNavHook";
 
 const Nav: React.FC = () => {
     const navbarClasses = useNavHook();

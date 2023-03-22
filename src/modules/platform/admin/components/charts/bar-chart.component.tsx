@@ -49,7 +49,7 @@
 
 import React from "react";
 import ReactApexChart from "react-apexcharts";
-import useCampaignData from "../hooks/useCampaignData";
+import useCampaignData from "../../hooks/useCampaignData";
 
 interface ChartData {
     x: string;

@@ -1,7 +1,7 @@
 import Modal from "react-modal";
 import { customStyles } from "../../admin.style";
 import { Typography } from "../../../../core";
-import { useAddQuestion } from "../hooks/useAddQuestion";
+import { useAddQuestion } from "../../hooks/useAddQuestion";
 
 Modal.setAppElement("#root");
 
