@@ -1,6 +1,6 @@
 import { Footer } from "../../core";
 import { Navigate } from "react-router-dom";
-import Nav from "../admin/components/nav.component";
+import Nav from "../../core/common/nav.component";
 
 type AdminRouteProps = {
     isAdmin: boolean;

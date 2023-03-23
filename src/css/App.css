@@ -117,3 +117,6 @@
     padding-top: 0 !important;
     font-family: "Righteous", cursive;
 }
+.logo-text {
+    cursor: pointer;
+}

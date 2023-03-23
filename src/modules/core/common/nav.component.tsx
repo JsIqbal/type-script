@@ -1,15 +1,23 @@
 import { Navbar } from "react-bootstrap";
 
-import { ModButton, Typography, svgIcon } from "../../../core";
-import { useNavHook } from "../hooks/useNavHook";
+import { ModButton, Typography, svgIcon } from "..";
+import { useNavHook } from "../../platform/admin/hooks/useNavHook";
+import { useNavigate } from "react-router-dom";
 
 const Nav: React.FC = () => {
     const navbarClasses = useNavHook();
+    const navigate = useNavigate();
 
     return (
         <Navbar bg="dark" variant="dark" className={navbarClasses}>
             <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
-                <Typography className="typo-graphy" element={"QIKCHECK"} />
+                <Typography
+                    event={() => {
+                        navigate("/");
+                    }}
+                    className="typo-graphy logo-text"
+                    element={"QIKCHECK"}
+                />
                 <ModButton
                     className="bg-dark border-0 text-danger"
                     event={() => {

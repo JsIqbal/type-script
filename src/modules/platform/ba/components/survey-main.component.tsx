@@ -2,6 +2,8 @@ import React from "react";
 import { Formik, Form, Field } from "formik";
 import { useGetCampaign } from "../hooks/useGetCampaign";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { error, success } from "../../../core/common/toaster";
 
 interface Campaign {
     id: number;
@@ -22,6 +24,7 @@ interface Props {
 }
 
 const QuestionForm: React.FC = () => {
+    const navigate = useNavigate();
     const { campaigns }: Props = useGetCampaign();
 
     const access_token = `Token ${localStorage.getItem("access")}`;
@@ -61,7 +64,11 @@ const QuestionForm: React.FC = () => {
                     headers,
                 }
             );
-        } catch (error) {}
+            success();
+            navigate("/");
+        } catch (err) {
+            error();
+        }
     };
 
     return (

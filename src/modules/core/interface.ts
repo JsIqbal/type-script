@@ -13,4 +13,5 @@ export interface TypoProps extends React.HTMLAttributes<HTMLSpanElement> {
     color?: string;
     variant?: string;
     as?: string;
+    event?: () => void;
 }
