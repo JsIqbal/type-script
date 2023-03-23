@@ -1,7 +1,6 @@
-import { Footer, Typography } from "../../../core";
+import { Typography } from "../../../core";
 import Charts from "./charts/charts";
 import Banner from "./dashboard-banner.component";
-import Nav from "./nav.component";
 import { Table } from "./table/table.component";
 
 export default function Dashboard() {
@@ -20,8 +19,6 @@ export default function Dashboard() {
                     <Table />
                 </div>
             </div>
-
-            <Footer />
         </>
     );
 }

@@ -1,42 +1,43 @@
 import axios from "axios";
+import { FormValues } from "../interface";
+import { useNavigate } from "react-router-dom";
+import { error, success } from "../../../core/common/toaster";
 
 const useSurveyOtp = () => {
-    const initialValues = {
-        otp: "",
-        participant_id: 0,
-    };
+    const navigate = useNavigate();
 
-    const onSubmit = async (values: any, { setSubmitting }: any) => {
+    const initialValues: FormValues = { otp: 0 };
+
+    const handleSubmit = async (
+        values: FormValues,
+        { setSubmitting, resetForm }: any
+    ) => {
         const access_token = `Token ${localStorage.getItem("access")}`;
+        const participant_id = parseInt(
+            localStorage.getItem("participant_id")!
+        );
+
+        const submitOTP = "http://127.0.0.1:8000/campaign/submit-otp/";
+        const headers = {
+            Authorization: access_token,
+        };
+
+        const data = new FormData();
+        data.append("otp", String(values.otp));
+        data.append("participant_id", String(participant_id));
+
         try {
-            const response = await axios.post(
-                "http://127.0.0.1:8000/campaign/submit-otp/",
-                values,
-                {
-                    headers: {
-                        Authorization: access_token,
-                    },
-                }
-            );
-            console.log(response.data);
-        } catch (error) {
-            console.error(error);
+            const response = await axios.post(submitOTP, data, { headers });
+            success();
+            navigate("/survey/form");
+        } catch (err) {
+            error();
+            resetForm();
         } finally {
             setSubmitting(false);
         }
     };
-
-    const validate = (values: any) => {
-        const errors: any = {};
-        if (!values.otp) {
-            errors.otp = "OTP is required";
-        }
-        if (!values.participant_id) {
-            errors.participant_id = "Participant ID is required";
-        }
-        return errors;
-    };
-    return { initialValues, onSubmit, validate };
+    return { initialValues, handleSubmit };
 };
 
 export { useSurveyOtp };

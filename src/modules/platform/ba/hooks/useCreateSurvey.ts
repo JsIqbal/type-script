@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useGetCampaign } from "./useGetCampaign";
-import { success } from "../../../core/common/toaster";
+import { success, error } from "../../../core/common/toaster";
 import { useNavigate } from "react-router-dom";
 
 function useCreateSurvey() {
@@ -22,6 +22,12 @@ function useCreateSurvey() {
     };
 
     const handleSubmit = (event: any) => {
+        console.log(formData);
+        const data = new FormData();
+        data.append("participant_name", formData.participant_name);
+        data.append("participant_phone", formData.participant_phone);
+        data.append("age", formData.age);
+        data.append("profession", formData.profession);
         event.preventDefault();
         const url = "http://127.0.0.1:8000/campaign/create-survey/";
         const access_token = `Token ${localStorage.getItem("access")}`;
@@ -29,12 +35,19 @@ function useCreateSurvey() {
             Authorization: access_token,
         };
         axios
-            .post(url, formData, { headers })
+            .post(url, data, { headers })
             .then((response) => {
+                console.log(response);
+                localStorage.setItem(
+                    "participant_id",
+                    response.data.participant_id
+                );
                 success();
                 naviate("/survey/otp");
             })
-            .catch((err) => {});
+            .catch((err) => {
+                naviate("/");
+            });
     };
 
     return { campaigns, loading, error, formData, handleChange, handleSubmit };

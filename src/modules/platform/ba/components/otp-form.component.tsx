@@ -1,5 +1,4 @@
 import { Form, Field, ErrorMessage } from "formik";
-import { Button } from "react-bootstrap";
 
 const OtpForm = ({ isSubmitting }: any) => {
     return (
@@ -9,7 +8,7 @@ const OtpForm = ({ isSubmitting }: any) => {
                     OTP
                 </label>
                 <Field
-                    type="text"
+                    type="number"
                     id="otp"
                     name="otp"
                     className="form-control"
@@ -20,29 +19,13 @@ const OtpForm = ({ isSubmitting }: any) => {
                     className="text-danger"
                 />
             </div>
-            <div className="form-group">
-                <label htmlFor="participant_id" className="mb-1">
-                    Participant ID
-                </label>
-                <Field
-                    type="number"
-                    id="participant_id"
-                    name="participant_id"
-                    className="form-control"
-                />
-                <ErrorMessage
-                    name="participant_id"
-                    component="div"
-                    className="text-danger"
-                />
-            </div>
-            <Button
+            <button
                 disabled={isSubmitting}
                 className="mt-3 btn btn-primary btn-block"
                 type="submit"
             >
-                Submit
-            </Button>
+                {isSubmitting ? "Loading..." : "Submit"}
+            </button>
         </Form>
     );
 };

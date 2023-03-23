@@ -1,7 +1,7 @@
 import { Col } from "react-bootstrap";
 import useDashBoardHook from "../hooks/useDashBoardHook";
 import useCreateSurvey from "../hooks/useCreateSurvey";
-import SurveyForm from "./survey-form.component";
+import SurveyForm from "./survey-primary-form.component";
 
 function SurveyPrimary() {
     const { data } = useDashBoardHook();
@@ -12,7 +12,10 @@ function SurveyPrimary() {
     if (loading) return <div>Loading...</div>;
     if (error) return <div>{error}</div>;
     return (
-        <Col className="col-lg-6 ms-auto me-auto mt-5 card chart p-5">
+        <Col
+            style={{ marginBottom: "43px" }}
+            className="col-lg-6 ms-auto me-auto mt-5 card chart p-5"
+        >
             <SurveyForm
                 handleSubmit={handleSubmit}
                 data={data}
