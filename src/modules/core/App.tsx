@@ -12,6 +12,7 @@ import {
     SubmitOtpForm,
 } from "../platform";
 import { PublicRoute } from "./";
+import QuestionForm from "../platform/ba/components/survey-main.component";
 
 export default function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -52,6 +53,7 @@ export default function App() {
                     >
                         <Route path="/" element={<BaDashboard />} />
                         <Route path="/survey/otp" element={<SubmitOtpForm />} />
+                        <Route path="/survey/form" element={<QuestionForm />} />
                     </Route>
                 )}
                 <Route path="/" element={<Navigate to="/login" />} />

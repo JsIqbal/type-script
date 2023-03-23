@@ -22,7 +22,6 @@ function useCreateSurvey() {
     };
 
     const handleSubmit = (event: any) => {
-        console.log(formData);
         const data = new FormData();
         data.append("participant_name", formData.participant_name);
         data.append("participant_phone", formData.participant_phone);
@@ -37,7 +36,6 @@ function useCreateSurvey() {
         axios
             .post(url, data, { headers })
             .then((response) => {
-                console.log(response);
                 localStorage.setItem(
                     "participant_id",
                     response.data.participant_id

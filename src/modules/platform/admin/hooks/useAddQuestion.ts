@@ -21,7 +21,8 @@ export const useAddQuestion = (item: any) => {
         setChoices(inputArray);
     };
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (e: any) => {
+        e.preventDefault();
         const access_token = `Token ${localStorage.getItem("access")}`;
         const url = "http://127.0.0.1:8000/campaign/create-questions/";
         const config = {
@@ -33,6 +34,7 @@ export const useAddQuestion = (item: any) => {
         data.append("campaignName", item.name);
         data.append("type", selectedOption);
         data.append("question", inputOption);
+        // data.append("choices[]", JSON.stringify(choices));
         if (selectedOption === "Multiple Choice") {
             data.append("choices[]", JSON.stringify(choices));
         }
