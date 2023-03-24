@@ -1,5 +1,7 @@
+import { useGetCampaign } from "../hooks/useGetCampaign";
 import axios from "axios";
-import { useGetCampaign } from "./useGetCampaign";
+import { useNavigate } from "react-router-dom";
+import { error, success } from "../../../core/common/toaster";
 
 interface Campaign {
     id: number;
@@ -20,48 +22,56 @@ interface Props {
 }
 
 const useQuestionSubmit = () => {
+    const navigate = useNavigate();
     const { campaigns }: Props = useGetCampaign();
 
     const access_token = `Token ${localStorage.getItem("access")}`;
+    const participant_id: any = localStorage.getItem("participant_id");
 
     const submitSurvey: any = async (values: any) => {
         const questionList = campaigns.map((campaign) => campaign.text);
         const answerList = Object.values(values);
 
-        const data = questionList.map((question, index) => {
-            return {
-                question: question,
-                answer: answerList[index] || "Null",
-            };
-        });
+        const data = [];
 
-        const json_data = JSON.stringify(data);
+        for (let i = 0; i < questionList.length; i++) {
+            const question = questionList[i];
+            const answer = answerList[i];
+
+            data.push({ question, answer });
+        }
+
+        const formData = new FormData();
+
+        formData.append(
+            "participant_id",
+            JSON.stringify(parseInt(participant_id))
+        );
+
+        formData.append("signature", JSON.stringify(true));
+        formData.append("survey_response", JSON.stringify(data));
 
         const headers = {
             Authorization: access_token,
         };
 
-        const postData = {
-            survey_response: json_data,
-            participant_id: parseInt(localStorage.getItem("participant_id")!),
-            signature: true,
-        };
-
         try {
-            console.log(
-                "----------------------------------------------------",
-                postData
-            );
             const response = await axios.post(
                 "http://127.0.0.1:8000/campaign/submit-survey/",
-                postData,
+                formData,
                 {
                     headers,
                 }
             );
-        } catch (error) {}
+            success();
+            localStorage.removeItem("participant_id");
+
+            navigate("/");
+        } catch (err) {
+            error();
+        }
     };
     return { submitSurvey, campaigns };
 };
 
-export default { useQuestionSubmit };
+export { useQuestionSubmit };
