@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
+
 import { adminActions, interfaces } from "../..";
 import { customStyles } from "../../admin.style";
 import ModalForm from "./modal.form";
 import { ModButton } from "../../../../core";
+
 Modal.setAppElement("#root");
 
 export function CreateCampaignModal({

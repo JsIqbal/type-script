@@ -1,6 +1,7 @@
+import { useState } from "react";
+
 import { CreateCampaignModal } from "../modal/modal.component";
 import { interfaces } from "../../";
-import { useState } from "react";
 import { AddQuestion } from "../modal/add-question.modal";
 import { Download } from "../modal/download-campaign.modal";
 import CreateBAModal from "../modal/create-ba.modal";

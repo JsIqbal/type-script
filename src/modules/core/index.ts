@@ -4,5 +4,6 @@ import Footer from "./common/footer.component";
 import Label from "./common/label-element.component";
 import Typography from "./common/typography.component";
 import * as svgIcon from "./svg/all.svg";
+import * as toast from "./common/toaster";
 
-export { PublicRoute, ModButton, Footer, Label, Typography, svgIcon };
+export { PublicRoute, ModButton, Footer, Label, Typography, svgIcon, toast };

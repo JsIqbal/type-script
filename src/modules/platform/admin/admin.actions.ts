@@ -1,5 +1,5 @@
 import axios from "axios";
-import { error, success } from "../../core/common/toaster";
+import { toast } from "../../core";
 
 export async function createCampaign(formData: any, closeModal: any) {
     const data = new FormData();
@@ -16,10 +16,10 @@ export async function createCampaign(formData: any, closeModal: any) {
                 },
             }
         );
-        success();
+        toast.success();
         closeModal();
     } catch (err) {
-        error();
+        toast.error();
     }
 }
 

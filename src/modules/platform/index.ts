@@ -1,6 +1,6 @@
 import { Login, userActions } from "./user";
 import { adminActions, AdminDashboard, AdminRoute } from "./admin";
-import { BaRoute, BaDashboard, SubmitOtpForm } from "./ba";
+import { BaRoute, BaDashboard, SubmitOtpForm, QuestionForm } from "./ba";
 
 export {
     Login,
@@ -11,4 +11,5 @@ export {
     BaRoute,
     BaDashboard,
     SubmitOtpForm,
+    QuestionForm,
 };

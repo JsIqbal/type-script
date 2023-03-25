@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import { adminActions, thead, interfaces } from "../..";
 import TableAction from "./table.actions";
 import TableHead from "./table-head.component";

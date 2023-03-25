@@ -1,4 +1,4 @@
-import { Col } from "react-bootstrap";
+import { Col, Placeholder } from "react-bootstrap";
 import useDashBoardHook from "../hooks/useDashBoardHook";
 import useCreateSurvey from "../hooks/useCreateSurvey";
 import SurveyForm from "./survey-primary-form.component";
@@ -9,7 +9,12 @@ function SurveyPrimary() {
     const { loading, error, formData, handleChange, handleSubmit } =
         useCreateSurvey();
 
-    if (loading) return <div>Loading...</div>;
+    if (loading)
+        return (
+            <div aria-hidden="true">
+                <Placeholder xs={6} />
+            </div>
+        );
     if (error) return <div>{error}</div>;
     return (
         <Col

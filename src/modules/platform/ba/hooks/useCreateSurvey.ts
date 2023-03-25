@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useGetCampaign } from "./useGetCampaign";
-import { success, error } from "../../../core/common/toaster";
+import { toast } from "../../../core";
 import { useNavigate } from "react-router-dom";
 
 function useCreateSurvey() {
@@ -40,7 +40,7 @@ function useCreateSurvey() {
                     "participant_id",
                     response.data.participant_id
                 );
-                success();
+                toast.success();
                 naviate("/survey/otp");
             })
             .catch((err) => {

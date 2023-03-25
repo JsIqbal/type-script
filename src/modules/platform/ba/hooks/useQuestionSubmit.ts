@@ -1,7 +1,7 @@
 import { useGetCampaign } from "../hooks/useGetCampaign";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { error, success } from "../../../core/common/toaster";
+import { toast } from "../../../core";
 
 interface Campaign {
     id: number;
@@ -63,12 +63,12 @@ const useQuestionSubmit = () => {
                     headers,
                 }
             );
-            success();
+            toast.success();
             localStorage.removeItem("participant_id");
 
             navigate("/");
         } catch (err) {
-            error();
+            toast.error();
         }
     };
     return { submitSurvey, campaigns };

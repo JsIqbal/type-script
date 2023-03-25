@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
+
 import { customStyles } from "../../admin.style";
 import { ModButton } from "../../../../core";
+
 Modal.setAppElement("#root");
 
 export function Download({

@@ -1,5 +1,4 @@
 import axios from "axios";
-import { success } from "../../core/common/toaster";
 
 export async function login(loginData: any) {
     const data = new FormData();

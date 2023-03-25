@@ -7,9 +7,9 @@ import "./css/index.css";
 import "./css/App.css";
 import App from "./modules/core/App";
 
-const root = ReactDOM.createRoot(
-    document.getElementById("root") as HTMLElement
-);
+const div = document.getElementById("root") as HTMLElement;
+
+const root = ReactDOM.createRoot(div);
 root.render(
     <React.StrictMode>
         <BrowserRouter>

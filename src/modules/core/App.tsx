@@ -10,9 +10,9 @@ import {
     BaRoute,
     BaDashboard,
     SubmitOtpForm,
+    QuestionForm,
 } from "../platform";
 import { PublicRoute } from "./";
-import QuestionForm from "../platform/ba/components/survey-main.component";
 
 export default function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
