@@ -10,7 +10,7 @@ tsc hello.ts
     }
 }
 
-npx create-react-app my-app --template typescript
+npx create-react-app counter --template typescript
 
 npm install --save axios
 npm install --save-dev @types/axios
