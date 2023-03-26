@@ -15,7 +15,7 @@ function Banner(): JSX.Element {
                     sm
                     className="text-center bg-light rounded py-3 my-3 mx-4 card chart"
                 >
-                    {`BA - ${userReport?.total_ba}`}
+                    {`BA - ${userReport?.total_ba || 0}`}
                 </Col>
             </Row>
             <Row className="justify-content-around">
@@ -23,7 +23,7 @@ function Banner(): JSX.Element {
                     sm
                     className="text-center bg-light rounded py-3 my-3 mx-4 card chart"
                 >
-                    {`Campaign - ${campaignReport?.total_campaign}`}
+                    {`Campaign - ${campaignReport?.total_campaign || 0}`}
                 </Col>
             </Row>
             <Row className="justify-content-around">
@@ -31,7 +31,7 @@ function Banner(): JSX.Element {
                     sm
                     className="text-center bg-light rounded py-3 my-3 mx-4 card chart"
                 >
-                    {`Impression - ${campaignReport?.total_impression}`}
+                    {`Impression - ${campaignReport?.total_impression || 0}`}
                 </Col>
             </Row>
         </Container>

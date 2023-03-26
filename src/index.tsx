@@ -11,9 +11,7 @@ const div = document.getElementById("root") as HTMLElement;
 
 const root = ReactDOM.createRoot(div);
 root.render(
-    <React.StrictMode>
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
-    </React.StrictMode>
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>
 );
