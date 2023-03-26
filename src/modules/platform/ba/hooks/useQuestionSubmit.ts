@@ -1,6 +1,7 @@
 import { useGetCampaign } from "../hooks/useGetCampaign";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useState, useRef } from "react";
 import { toast } from "../../../core";
 
 interface Campaign {
@@ -24,6 +25,21 @@ interface Props {
 const useQuestionSubmit = () => {
     const navigate = useNavigate();
     const { campaigns }: Props = useGetCampaign();
+    const signatureRef: any = useRef(null);
+    const [isSignatureEmpty, setIsSignatureEmpty] = useState(true);
+
+    const clearSignature = () => {
+        signatureRef.current.clear();
+        setIsSignatureEmpty(true);
+    };
+
+    const handleSignatureChange = () => {
+        if (signatureRef.current.isEmpty()) {
+            setIsSignatureEmpty(true);
+        } else {
+            setIsSignatureEmpty(false);
+        }
+    };
 
     const access_token = `Token ${localStorage.getItem("access")}`;
     const participant_id: any = localStorage.getItem("participant_id");
@@ -71,7 +87,14 @@ const useQuestionSubmit = () => {
             toast.error();
         }
     };
-    return { submitSurvey, campaigns };
+    return {
+        submitSurvey,
+        campaigns,
+        isSignatureEmpty,
+        clearSignature,
+        handleSignatureChange,
+        signatureRef,
+    };
 };
 
 export { useQuestionSubmit };

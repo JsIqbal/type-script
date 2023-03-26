@@ -1,13 +1,20 @@
-import React from "react";
 import { Formik, Form, Field } from "formik";
 
 import { useQuestionSubmit } from "../hooks/useQuestionSubmit";
+import DigitalSign from "./digital-signature.component";
 
 const QuestionForm: React.FC = () => {
-    const { submitSurvey, campaigns } = useQuestionSubmit();
+    const {
+        submitSurvey,
+        campaigns,
+        isSignatureEmpty,
+        clearSignature,
+        handleSignatureChange,
+        signatureRef,
+    } = useQuestionSubmit();
 
     return (
-        <Formik initialValues={{}} onSubmit={submitSurvey}>
+        <Formik initialValues={{ signature: "" }} onSubmit={submitSurvey}>
             {({ handleSubmit }) => (
                 <Form onSubmit={handleSubmit} className="p-5 bg-light mt-5">
                     {campaigns.map((campaign) => {
@@ -52,7 +59,17 @@ const QuestionForm: React.FC = () => {
                             </div>
                         );
                     })}
-                    <button type="submit" className="btn btn-primary">
+                    <DigitalSign
+                        signatureRef={signatureRef}
+                        handleSignatureChange={handleSignatureChange}
+                        clearSignature={clearSignature}
+                        isSignatureEmpty={isSignatureEmpty}
+                    />
+                    <button
+                        type="submit"
+                        className="btn btn-primary"
+                        disabled={isSignatureEmpty}
+                    >
                         Submit
                     </button>
                 </Form>

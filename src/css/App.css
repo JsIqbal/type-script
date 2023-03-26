@@ -120,3 +120,7 @@
 .logo-text {
     cursor: pointer;
 }
+
+.modal {
+    transition: opacity 0.3s ease-in-out;
+}

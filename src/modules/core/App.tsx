@@ -13,11 +13,17 @@ import {
     QuestionForm,
 } from "../platform";
 import { PublicRoute } from "./";
+import DigitalSignature from "./digital";
 
 export default function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
     const [isBa, setIsBa] = useState(false);
+
+    const handleSaveSignature = (signature: string) => {
+        // Do something with the signature
+        console.log(signature);
+    };
 
     useEffect(() => {
         userActions.handleUserType(setIsLoggedIn, setIsBa, setIsAdmin);
@@ -57,6 +63,10 @@ export default function App() {
                     </Route>
                 )}
                 <Route path="/" element={<Navigate to="/login" />} />
+                <Route
+                    path="/test"
+                    element={<DigitalSignature onSave={handleSaveSignature} />}
+                />
                 <Route
                     path="/login"
                     element={
