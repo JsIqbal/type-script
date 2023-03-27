@@ -7,7 +7,7 @@ export default function Dashboard() {
     return (
         <>
             <div className="chart-container">
-                <div className="row">
+                <div className="row mb-5">
                     <Charts />
                     <div className="col-sm-4 chart card text-center">
                         <Typography

@@ -96,6 +96,40 @@ export const cross = (
 export const profile = (
     <svg
         xmlns="http://www.w3.org/2000/svg"
+        width="30"
+        height="30"
+        fill="currentColor"
+        className="bi bi-person-circle"
+        viewBox="0 0 16 16"
+    >
+        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+        <path
+            fillRule="evenodd"
+            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+        />
+    </svg>
+);
+
+export const user = (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="50"
+        height="50"
+        fill="currentColor"
+        className="bi bi-person-circle"
+        viewBox="0 0 16 16"
+    >
+        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+        <path
+            fillRule="evenodd"
+            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+        />
+    </svg>
+);
+
+export const ba = (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
         width="16"
         height="16"
         fill="currentColor"
@@ -107,5 +141,19 @@ export const profile = (
             fillRule="evenodd"
             d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
         />
+    </svg>
+);
+
+export const download = (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        className="bi bi-download"
+        viewBox="0 0 16 16"
+    >
+        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"></path>
+        <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"></path>
     </svg>
 );

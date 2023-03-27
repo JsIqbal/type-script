@@ -1,6 +1,9 @@
 const Footer = () => {
     return (
-        <div className="text-center mt-5 bg-dark text-light pt-2 pb-2">
+        <div
+            className="text-center bg-dark text-light pt-2 pb-2"
+            style={{ position: "fixed", bottom: 0, width: "100%" }}
+        >
             &copy; 2023 all rights reserved by ADA
         </div>
     );

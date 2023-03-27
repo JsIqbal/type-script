@@ -3,16 +3,29 @@ import { ModButton, svgIcon } from "../../../core";
 import { customStyles } from "../../admin/admin.style";
 import { Card, Col, ListGroup } from "react-bootstrap";
 import { useState } from "react";
+import useDashBoardHook from "../hooks/useDashBoardHook";
 Modal.setAppElement("#root");
 
 function Profile() {
     const [profileOpen, setProfileOpen] = useState(false);
+    const { data, loading, error } = useDashBoardHook();
+    const Impression = data?.Impression;
+    const area = data?.area;
+    const campaigns = data?.campaigns;
+    const contact = data?.contact;
+    const region = data?.region;
+    const teritorry = data?.teritorry;
+    const username = data?.username;
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
     return (
         <div>
             <ModButton
                 element={svgIcon.profile}
                 event={() => setProfileOpen(true)}
-                className="btn btn-primary mr-2 ms-2"
+                className="btn btn-primary mr-2 ms-2 bg-dark border-0"
             />
             <Modal
                 style={customStyles}
@@ -25,33 +38,32 @@ function Profile() {
                 >
                     <span>&times;</span>
                 </button>
-                <Col className="col-md-12 col-lg-4 ms-auto me-auto mt-5  p-5">
-                    <Card className="chart">
-                        <Card.Img
-                            variant="top"
-                            src="holder.js/100px180?text=Image cap"
-                        />
-                        <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the card
-                                title and make up the bulk of the card's
-                                content.
-                            </Card.Text>
-                        </Card.Body>
-                        <ListGroup className="list-group-flush">
-                            <ListGroup.Item>Cras justo odio</ListGroup.Item>
-                            <ListGroup.Item>
-                                Dapibus ac facilisis in
-                            </ListGroup.Item>
-                            <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-                        </ListGroup>
-                        <Card.Body>
-                            <Card.Link href="#">Card Link</Card.Link>
-                            <Card.Link href="#">Another Link</Card.Link>
-                        </Card.Body>
-                    </Card>
-                </Col>
+                <div className="text-center">{svgIcon.user}</div>
+                {/* <Col className="col-md-12 col-lg-4 ms-auto me-auto mt-5 p-5"> */}
+                <Card className="ms-3 me-3 mt-2">
+                    <Card.Body>
+                        <Card.Title>{username}</Card.Title>
+                        <Card.Text>{area}</Card.Text>
+                    </Card.Body>
+                    <ListGroup className="list-group-flush">
+                        <ListGroup.Item>
+                            <strong>Count:</strong> {Impression || 0}
+                        </ListGroup.Item>
+                        <ListGroup.Item>
+                            <strong>Campaigns:</strong> {campaigns}
+                        </ListGroup.Item>
+                        <ListGroup.Item>
+                            <strong>Contacts:</strong> {contact}
+                        </ListGroup.Item>
+                        <ListGroup.Item>
+                            <strong>Region:</strong> {region}
+                        </ListGroup.Item>
+                        <ListGroup.Item>
+                            <strong>Territory:</strong> {teritorry}
+                        </ListGroup.Item>
+                    </ListGroup>
+                </Card>
+                {/* </Col> */}
             </Modal>
         </div>
     );
