@@ -1,8 +1,9 @@
 import { Navbar } from "react-bootstrap";
-
 import { ModButton, Typography, svgIcon } from "..";
 import { useNavHook } from "../../platform/admin/hooks/useNavHook";
 import { useNavigate } from "react-router-dom";
+import BaProfile from "../../platform/ba/components/profile.component";
+import { user } from "../index";
 
 const Nav: React.FC = () => {
     const navbarClasses = useNavHook();
@@ -10,7 +11,7 @@ const Nav: React.FC = () => {
 
     return (
         <Navbar bg="dark" variant="dark" className={navbarClasses}>
-            <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
+            <div className="container mx-auto d-flex align-items-center justify-content-between text-blue-gray-900">
                 <Typography
                     event={() => {
                         navigate("/");
@@ -18,14 +19,17 @@ const Nav: React.FC = () => {
                     className="typo-graphy logo-text"
                     element={"QIKCHECK"}
                 />
-                <ModButton
-                    className="bg-dark border-0 text-danger"
-                    event={() => {
-                        localStorage.clear();
-                        window.location.href = "/";
-                    }}
-                    element={svgIcon.logout}
-                />
+                <div className="d-flex align-items-center">
+                    {(user.type === "BA" && <BaProfile />) || <p>none</p>}
+                    <ModButton
+                        className="bg-dark border-0 text-danger"
+                        event={() => {
+                            localStorage.clear();
+                            window.location.href = "/";
+                        }}
+                        element={svgIcon.logout}
+                    />
+                </div>
             </div>
         </Navbar>
     );
