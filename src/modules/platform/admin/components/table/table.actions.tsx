@@ -54,11 +54,11 @@ const TableAction = ({
                         {/* {svgIcon.question} */}
                         QUESTION+
                     </button>
-                    <button className="btn btn-success" disabled={disabled}>
+                    {/* <button className="btn btn-success" disabled={disabled}>
                         {item.status === "RUNNING" || null
                             ? "COMPLETED"
                             : "APPROVED"}
-                    </button>
+                    </button> */}
                 </div>
             </div>
             <AddQuestion

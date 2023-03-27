@@ -16,7 +16,10 @@ const QuestionForm: React.FC = () => {
     return (
         <Formik initialValues={{ signature: "" }} onSubmit={submitSurvey}>
             {({ handleSubmit }) => (
-                <Form onSubmit={handleSubmit} className="p-5 bg-light mt-5">
+                <Form
+                    onSubmit={handleSubmit}
+                    className="p-5 bg-light mt-5 mb-5"
+                >
                     {campaigns.map((campaign) => {
                         const { id, choices, question_type, text } = campaign;
                         return (
