@@ -38,7 +38,9 @@ export function Download({
                     "access"
                 )}&CampaignID=${item.id}`}
                 target="_blank"
-                className="btn btn-primary mr-2 ms-2 d-flex align-items-center"
+                className={`btn btn-primary mr-2 ms-2 d-flex align-items-center${
+                    disabled ? " disabled" : ""
+                }`}
                 type="button"
             >
                 <span className="me-2">{svgIcon.download}</span>

@@ -20,7 +20,7 @@ const Nav: React.FC = () => {
                     element={"QIKCHECK"}
                 />
                 <div className="d-flex align-items-center">
-                    {(user.type === "BA" && <BaProfile />) || <p>none</p>}
+                    {user.type === "BA" && <BaProfile />}
                     <ModButton
                         className="bg-dark border-0 text-danger"
                         event={() => {
