@@ -15,8 +15,7 @@ export const surveyPrimarySchema = object({
 
 export const surveySecondarySchema = object({
     participant_name: string().required("Participant name is required"),
-    age: number()
-        .required("Age is required")
-        .positive("Age must be a positive number"),
+    age: string().required("Age is required"),
+    // .positive("Age must be a positive number"),
     profession: string().required("Profession is required"),
 });

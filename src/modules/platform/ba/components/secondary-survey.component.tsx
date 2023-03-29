@@ -98,16 +98,21 @@ function SecondarySurvey() {
                                 Age
                             </label>
                             <Field
+                                as="select"
                                 id="age"
-                                type="number"
                                 name="age"
                                 className={`form-control ${
                                     touched.age && errors.age
                                         ? "is-invalid"
                                         : ""
                                 }`}
-                                placeholder="Enter participant age"
-                            />
+                            >
+                                <option value="">Select age range</option>
+                                <option value="25-30">25-30</option>
+                                <option value="31-35">31-35</option>
+                                <option value="36-41">36-41</option>
+                                <option value="42-47">42-47</option>
+                            </Field>
                             <ErrorMessage
                                 name="age"
                                 component="div"
@@ -120,16 +125,22 @@ function SecondarySurvey() {
                                 Profession
                             </label>
                             <Field
+                                as="select"
                                 id="profession"
-                                type="text"
                                 name="profession"
                                 className={`form-control ${
                                     touched.profession && errors.profession
                                         ? "is-invalid"
                                         : ""
                                 }`}
-                                placeholder="Enter participant profession"
-                            />
+                            >
+                                <option value="">Select profession</option>
+                                <option value="student">Student</option>
+                                <option value="teacher">Teacher</option>
+                                <option value="job">Job</option>
+                                <option value="driver">Driver</option>
+                                <option value="ceo">CEO</option>
+                            </Field>
                             <ErrorMessage
                                 name="profession"
                                 component="div"

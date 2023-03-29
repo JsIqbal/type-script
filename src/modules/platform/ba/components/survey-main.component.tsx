@@ -32,6 +32,7 @@ const QuestionForm: React.FC = () => {
                                 </label>
                                 {question_type === "Multiple Choice" ? (
                                     <Field
+                                        required
                                         name={`question-${id}`}
                                         as="select"
                                         className="form-select"
@@ -50,6 +51,7 @@ const QuestionForm: React.FC = () => {
                                     </Field>
                                 ) : (
                                     <Field
+                                        required
                                         name={`question-${id}`}
                                         type={
                                             question_type === "Text"
