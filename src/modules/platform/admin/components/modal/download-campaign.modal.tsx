@@ -12,7 +12,6 @@ export function Download({
     item,
     disabled,
 }: any) {
-    console.log(item);
     const [formData, setFormData] = useState({
         date: "",
     });

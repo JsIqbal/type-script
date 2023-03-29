@@ -23,7 +23,7 @@ function useSecondarySurvey() {
 
     const handleSubmit = (values: any, e: any) => {
         const id: any = localStorage.getItem("participant_id");
-        console.log(values);
+
         const data = new FormData();
         data.append("participant_name", values.participant_name);
         data.append("age", values.age);
@@ -38,12 +38,10 @@ function useSecondarySurvey() {
         axios
             .post(url, data, { headers })
             .then((response) => {
-                console.log(response);
                 success();
                 navigate("/survey/form");
             })
             .catch((err) => {
-                console.log(err);
                 navigate("/");
             });
     };

@@ -23,7 +23,6 @@ export default function App() {
 
     const handleSaveSignature = (signature: string) => {
         // Do something with the signature
-        console.log(signature);
     };
 
     useEffect(() => {
@@ -60,6 +59,14 @@ export default function App() {
                     >
                         <Route path="/" element={<BaDashboard />} />
                         <Route path="/survey/otp" element={<SubmitOtpForm />} />
+                        <Route
+                            path="/survey/reward"
+                            element={
+                                <div className="text-center">
+                                    <h3>Here Will be the reward form</h3>
+                                </div>
+                            }
+                        />
                         <Route path="/survey/form" element={<QuestionForm />} />
                         <Route
                             path="/survey/secondary"

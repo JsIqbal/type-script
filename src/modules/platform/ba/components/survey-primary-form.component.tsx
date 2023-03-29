@@ -105,8 +105,6 @@ import { Typography } from "../../../core";
 import { surveyPrimarySchema } from "../ba.schema";
 
 const SurveyForm = ({ handleSubmit, data, formData, handleChange }: any) => {
-    console.log(formData);
-
     const [agreed, setAgreed] = useState(false);
 
     const handleAgreementCheck = (e: any) => {

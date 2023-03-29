@@ -15,8 +15,6 @@ const useAddBa = (item: any, setBaOpen: any) => {
                 formData.append("file", file);
             }
             formData.append("campaign_Code", campaign_Code);
-            console.log(file);
-            console.log(campaign_Code);
             const response = await axios.post(
                 "http://127.0.0.1:8000/account/create-ba/",
                 formData,
@@ -27,7 +25,6 @@ const useAddBa = (item: any, setBaOpen: any) => {
                     },
                 }
             );
-            console.log("API response:", response.data);
             toast.success();
             setBaOpen(false);
         } catch (err) {

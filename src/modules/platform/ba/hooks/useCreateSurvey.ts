@@ -145,10 +145,6 @@ function useCreateSurvey() {
     };
 
     const handleSubmit = (values: any, e: any) => {
-        console.log(
-            "-------------------------------",
-            values.participant_operator
-        );
         // e.resetForm();
         setSubmitting(true);
 

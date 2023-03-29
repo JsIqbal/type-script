@@ -25,9 +25,13 @@ interface Props {
 const useQuestionSubmit = () => {
     const navigate = useNavigate();
     const { campaigns }: Props = useGetCampaign();
-    console.log("=======================", campaigns);
     const signatureRef: any = useRef(null);
     const [isSignatureEmpty, setIsSignatureEmpty] = useState(true);
+    const [agreed, setAgreed] = useState(false);
+
+    const handleAgreementCheck = (e: any) => {
+        setAgreed(e.target.checked);
+    };
 
     const clearSignature = () => {
         signatureRef.current.clear();
@@ -44,7 +48,6 @@ const useQuestionSubmit = () => {
 
     const access_token = `Token ${localStorage.getItem("access")}`;
     const participant_id: any = localStorage.getItem("participant_id");
-
     const submitSurvey: any = async (values: any) => {
         const questionList = campaigns.map((campaign) => campaign.text);
         const answerList = Object.values(values);
@@ -82,8 +85,11 @@ const useQuestionSubmit = () => {
             );
             toast.success();
             localStorage.removeItem("participant_id");
-
-            navigate("/");
+            if (agreed) {
+                return navigate("/survey/reward");
+            }
+            window.location.href = "/";
+            return navigate("/");
         } catch (err) {
             toast.error();
         }
@@ -95,6 +101,9 @@ const useQuestionSubmit = () => {
         clearSignature,
         handleSignatureChange,
         signatureRef,
+        agreed,
+        setAgreed,
+        handleAgreementCheck,
     };
 };
 
