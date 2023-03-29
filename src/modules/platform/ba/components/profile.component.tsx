@@ -22,6 +22,7 @@ function Profile() {
     }
     return (
         <div>
+            <button className="btn btn-success ">{`CS ${Impression}`}</button>
             <ModButton
                 element={svgIcon.profile}
                 event={() => setProfileOpen(true)}
