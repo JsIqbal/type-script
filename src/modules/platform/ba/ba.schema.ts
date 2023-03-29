@@ -7,7 +7,8 @@ export const otpSchema = object().shape({
 export const surveyPrimarySchema = object({
     participant_phone: string()
         .required("Participant phone is required")
-        .min(13, "please input 880 before number"),
+        .min(10, "please input without 880 before number")
+        .max(10, "please input without 880 before number"),
     code: string().required("Outlet Code is required"),
     id: string().required("Outlet Name is required"),
 });

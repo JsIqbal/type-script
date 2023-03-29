@@ -104,7 +104,7 @@ import { Button, FormCheck } from "react-bootstrap";
 import { Typography } from "../../../core";
 import { surveyPrimarySchema } from "../ba.schema";
 
-const SurveyForm = ({ handleSubmit, data, formData }: any) => {
+const SurveyForm = ({ handleSubmit, data, formData, handleChange }: any) => {
     console.log(formData);
 
     const [agreed, setAgreed] = useState(false);
@@ -148,6 +148,42 @@ const SurveyForm = ({ handleSubmit, data, formData }: any) => {
                             />
                             <ErrorMessage
                                 name="participant_phone"
+                                component="div"
+                                className="invalid-feedback"
+                            />
+                        </div>
+                    </div>
+
+                    <div className="mb-3">
+                        <label
+                            htmlFor="participant_operator"
+                            className="form-label fw-bold"
+                        >
+                            Operator
+                        </label>
+                        <div className="input-group">
+                            <Field
+                                id="participant_operator"
+                                name="participant_operator"
+                                as="select"
+                                className={`form-control ${
+                                    touched.participant_operator &&
+                                    errors.participant_operator
+                                        ? "is-invalid"
+                                        : ""
+                                }`}
+                            >
+                                <option value="">Select Operator</option>
+                                <option value="ROBI">ROBI</option>
+                                <option value="GRAMEENPHONE">
+                                    GRAMEENPHONE
+                                </option>
+                                <option value="AIRTEL">AIRTEL</option>
+                                <option value="TELETALK">TELETALK</option>
+                                <option value="BANGLALINK">BANGLALINK</option>
+                            </Field>
+                            <ErrorMessage
+                                name="participant_operator"
                                 component="div"
                                 className="invalid-feedback"
                             />

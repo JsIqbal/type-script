@@ -131,26 +131,32 @@ function useCreateSurvey() {
         participant_phone: "",
         code: "",
         id: "",
+        participant_operator: "",
     });
 
     const [submitting, setSubmitting] = useState(false);
 
     const handleChange = (event: any) => {
-        setFormData({
-            ...formData,
-            [event.target.name]: event.target.value,
-        });
+        const { name, value } = event.target;
+        setFormData((prevState) => ({
+            ...prevState,
+            [name]: value,
+        }));
     };
 
     const handleSubmit = (values: any, e: any) => {
-        console.log(values);
+        console.log(
+            "-------------------------------",
+            values.participant_operator
+        );
         // e.resetForm();
         setSubmitting(true);
 
         const data = new FormData();
-        data.append("participant_phone", values.participant_phone);
+        data.append("participant_phone", `880${values.participant_phone}`);
         data.append("outlet_name", values.id);
         data.append("outlet_code", values.code);
+        data.append("participant_operator", values.participant_operator);
 
         const url = "http://127.0.0.1:8000/campaign/start-survey/";
         const access_token = `Token ${localStorage.getItem("access")}`;
