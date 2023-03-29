@@ -128,10 +128,7 @@ function useCreateSurvey() {
     const navigate = useNavigate();
     const { campaigns, loading, error } = useGetCampaign();
     const [formData, setFormData] = useState({
-        participant_name: "",
         participant_phone: "",
-        age: "",
-        profession: "",
         code: "",
         id: "",
     });
@@ -146,19 +143,16 @@ function useCreateSurvey() {
     };
 
     const handleSubmit = (values: any, e: any) => {
-        console.log(e);
+        console.log(values);
         // e.resetForm();
         setSubmitting(true);
 
         const data = new FormData();
-        data.append("participant_name", values.participant_name);
         data.append("participant_phone", values.participant_phone);
-        data.append("age", values.age);
-        data.append("profession", values.profession);
-        data.append("id", values.id);
-        data.append("code", values.code);
+        data.append("outlet_name", values.id);
+        data.append("outlet_code", values.code);
 
-        const url = "http://127.0.0.1:8000/campaign/create-survey/";
+        const url = "http://127.0.0.1:8000/campaign/start-survey/";
         const access_token = `Token ${localStorage.getItem("access")}`;
         const headers = {
             Authorization: access_token,

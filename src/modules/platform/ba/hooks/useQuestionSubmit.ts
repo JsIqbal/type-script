@@ -25,6 +25,7 @@ interface Props {
 const useQuestionSubmit = () => {
     const navigate = useNavigate();
     const { campaigns }: Props = useGetCampaign();
+    console.log("=======================", campaigns);
     const signatureRef: any = useRef(null);
     const [isSignatureEmpty, setIsSignatureEmpty] = useState(true);
 

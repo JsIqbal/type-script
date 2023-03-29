@@ -124,3 +124,7 @@
 .modal {
     transition: opacity 0.3s ease-in-out;
 }
+
+label {
+    font-family: "Open Sans", sans-serif;
+}

@@ -10,7 +10,7 @@ const LoginForm = ({ isSubmitting }: any) => {
                     type="username"
                     name="username"
                     className="form-control"
-                    placeholder="user name"
+                    placeholder="Enter Username"
                 />
                 <ErrorMessage
                     name="username"
@@ -24,7 +24,7 @@ const LoginForm = ({ isSubmitting }: any) => {
                     type="password"
                     name="password"
                     className="form-control"
-                    placeholder="Enter password"
+                    placeholder="Enter Password"
                 />
                 <ErrorMessage
                     name="password"
