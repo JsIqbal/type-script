@@ -36,7 +36,6 @@ const DigitalSignature: React.FC<DigitalSignatureProps> = ({ onSave }) => {
                 canvasProps={{ width: 500, height: 200 }}
                 onBegin={handleStartDrawing}
                 onEnd={handleEndDrawing}
-                // style={{ border: "1px solid black" }}
             />
             <div>
                 <button onClick={handleClear}>Clear</button>

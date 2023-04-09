@@ -46,6 +46,8 @@ const useQuestionSubmit = () => {
         }
     };
 
+    let rewardData;
+
     const access_token = `Token ${localStorage.getItem("access")}`;
     const participant_id: any = localStorage.getItem("participant_id");
     const submitSurvey: any = async (values: any) => {
@@ -83,11 +85,14 @@ const useQuestionSubmit = () => {
                     headers,
                 }
             );
-            toast.success();
-            localStorage.removeItem("participant_id");
+            rewardData = response.data.rewardData;
+            localStorage.setItem("rewardData", JSON.stringify(rewardData));
             if (agreed) {
                 return navigate("/survey/reward");
             }
+            toast.success();
+            localStorage.removeItem("participant_id");
+            localStorage.removeItem("rewardData");
             window.location.href = "/";
             return navigate("/");
         } catch (err) {

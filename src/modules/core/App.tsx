@@ -15,15 +15,12 @@ import {
 import { PublicRoute } from "./";
 import DigitalSignature from "./digital";
 import SecondarySurvey from "../platform/ba/components/secondary-survey.component";
+import Reward from "../platform/ba/components/reward.component";
 
 export default function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
     const [isBa, setIsBa] = useState(false);
-
-    const handleSaveSignature = (signature: string) => {
-        // Do something with the signature
-    };
 
     useEffect(() => {
         userActions.handleUserType(setIsLoggedIn, setIsBa, setIsAdmin);
@@ -59,14 +56,7 @@ export default function App() {
                     >
                         <Route path="/" element={<BaDashboard />} />
                         <Route path="/survey/otp" element={<SubmitOtpForm />} />
-                        <Route
-                            path="/survey/reward"
-                            element={
-                                <div className="text-center">
-                                    <h3>Here Will be the reward form</h3>
-                                </div>
-                            }
-                        />
+                        <Route path="/survey/reward" element={<Reward />} />
                         <Route path="/survey/form" element={<QuestionForm />} />
                         <Route
                             path="/survey/secondary"
@@ -75,10 +65,7 @@ export default function App() {
                     </Route>
                 )}
                 <Route path="/" element={<Navigate to="/login" />} />
-                <Route
-                    path="/test"
-                    element={<DigitalSignature onSave={handleSaveSignature} />}
-                />
+
                 <Route
                     path="/login"
                     element={

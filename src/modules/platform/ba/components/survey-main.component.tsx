@@ -73,18 +73,19 @@ const QuestionForm: React.FC = () => {
                                             className="form-control"
                                         />
                                     )}
-                                    <FormCheck
-                                        className="mb-3"
-                                        type="checkbox"
-                                        label="I agree to the terms and conditions"
-                                        checked={agreed}
-                                        onChange={handleAgreementCheck}
-                                    />
                                 </div>
                             );
                         }
                     })}
+                    <FormCheck
+                        className="mb-3 mt-4"
+                        type="checkbox"
+                        label="Give Digital Reward!"
+                        checked={agreed}
+                        onChange={handleAgreementCheck}
+                    />
                     <DigitalSign
+                        required
                         signatureRef={signatureRef}
                         handleSignatureChange={handleSignatureChange}
                         clearSignature={clearSignature}
