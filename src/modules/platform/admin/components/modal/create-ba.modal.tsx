@@ -12,12 +12,21 @@ const CreateBAModal = ({ baOpen, setBaOpen, item, disabled }: any) => {
 
     return (
         <div className="d-flex align-items-center">
-            <ModButton
+            {/* <ModButton
                 disabled={disabled}
                 element={"AddBA"}
                 event={() => setBaOpen(true)}
                 className="btn btn-primary mr-2 ms-2"
-            />
+            /> */}
+            <button
+                disabled={disabled}
+                onClick={() => setBaOpen(true)}
+                className="btn btn-primary mr-2 ms-2 d-flex align-items-center"
+                type="button"
+            >
+                <span className="me-2">{svgIcon.ba}</span>
+                <span>+BA</span>
+            </button>
             <Modal
                 style={customStyles}
                 isOpen={baOpen}
