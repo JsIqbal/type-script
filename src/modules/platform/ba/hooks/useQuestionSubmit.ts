@@ -2,7 +2,7 @@ import { useGetCampaign } from "../hooks/useGetCampaign";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState, useRef } from "react";
-import { toast } from "../../../core";
+import { success, error } from "../../../core/common/toaster";
 
 interface Campaign {
     id: number;
@@ -20,11 +20,12 @@ interface Campaign {
 
 interface Props {
     campaigns: Campaign[];
+    loading: boolean;
 }
 
 const useQuestionSubmit = () => {
     const navigate = useNavigate();
-    const { campaigns }: Props = useGetCampaign();
+    const { campaigns, loading }: Props = useGetCampaign();
     const signatureRef: any = useRef(null);
     const [isSignatureEmpty, setIsSignatureEmpty] = useState(true);
     const [agreed, setAgreed] = useState(false);
@@ -50,9 +51,11 @@ const useQuestionSubmit = () => {
 
     const access_token = `Token ${localStorage.getItem("access")}`;
     const participant_id: any = localStorage.getItem("participant_id");
+
     const submitSurvey: any = async (values: any) => {
         const questionList = campaigns.map((campaign) => campaign.text);
-        const answerList = Object.values(values);
+        // const answerList = Object.values(values);
+        const answerList = Object.values(values).slice(1);
 
         const data = [];
 
@@ -78,6 +81,7 @@ const useQuestionSubmit = () => {
         };
 
         try {
+            console.log(data);
             const response = await axios.post(
                 "http://127.0.0.1:8000/campaign/submit-survey/",
                 formData,
@@ -85,18 +89,20 @@ const useQuestionSubmit = () => {
                     headers,
                 }
             );
+            console.log(response.data.rewardData);
             rewardData = response.data.rewardData;
             localStorage.setItem("rewardData", JSON.stringify(rewardData));
             if (agreed) {
+                success();
                 return navigate("/survey/reward");
             }
-            toast.success();
+            success();
             localStorage.removeItem("participant_id");
             localStorage.removeItem("rewardData");
-            window.location.href = "/";
+            // window.location.href = "/";
             return navigate("/");
         } catch (err) {
-            toast.error();
+            error();
         }
     };
     return {
@@ -109,6 +115,7 @@ const useQuestionSubmit = () => {
         agreed,
         setAgreed,
         handleAgreementCheck,
+        loading,
     };
 };
 

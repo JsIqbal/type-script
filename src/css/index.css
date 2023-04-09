@@ -1,0 +1,12 @@
+.loader {
+    /* display: inherit; */
+    position: absolute !important;
+    width: 60px !important;
+    height: 60px !important;
+    top: 50% !important;
+    left: 50% !important;
+    right: 0 !important;
+    /* transform: translateX(10px); */
+    bottom: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}

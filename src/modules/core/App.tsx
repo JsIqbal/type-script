@@ -16,6 +16,7 @@ import { PublicRoute } from "./";
 import DigitalSignature from "./digital";
 import SecondarySurvey from "../platform/ba/components/secondary-survey.component";
 import Reward from "../platform/ba/components/reward.component";
+import Loader from "./common/loader.component";
 
 export default function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -27,7 +28,7 @@ export default function App() {
     }, []);
 
     return (
-        <>
+        <Loader>
             <Routes>
                 {isLoggedIn && !isBa && isAdmin && (
                     <Route
@@ -76,6 +77,6 @@ export default function App() {
                 />
             </Routes>
             <ToastContainer />
-        </>
+        </Loader>
     );
 }

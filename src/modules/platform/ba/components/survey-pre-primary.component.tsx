@@ -11,9 +11,10 @@ function SurveyPrePrimary() {
 
     if (loading)
         return (
-            <div aria-hidden="true">
-                <Placeholder xs={6} />
-            </div>
+            // <div aria-hidden="true">
+            //     <Placeholder xs={6} />
+            // </div>
+            <h1 className="text-center mt-5">Loading...</h1>
         );
     if (error) return <div>{error}</div>;
     return (

@@ -16,7 +16,12 @@ const QuestionForm: React.FC = () => {
         agreed,
         setAgreed,
         handleAgreementCheck,
+        loading,
     } = useQuestionSubmit();
+
+    if (loading) {
+        return <h1 className="text-center mt-5">Loading...</h1>;
+    }
 
     return (
         <Formik initialValues={{ signature: "" }} onSubmit={submitSurvey}>

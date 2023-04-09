@@ -25,8 +25,8 @@ const useReward = () => {
             success();
             localStorage.removeItem("participant_id");
             localStorage.removeItem("rewardData");
-            return (window.location.href = "/");
-            // return navigate("/");
+            // return (window.location.href = "/");
+            return navigate("/");
         } catch (err) {
             error();
             window.location.href = "/";
