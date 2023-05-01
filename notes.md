@@ -1,8 +1,10 @@
-/*
+// Installing Typescript
 npm i -g typescript
 
+// Transpiling a TypeScript file to JavaScript
 tsc hello.ts
 
+// tsconfig.json configuration
 {
     "compilerOptions": {
         "target": "ES2015",
@@ -10,40 +12,43 @@ tsc hello.ts
     }
 }
 
+// Creating a TypeScript React app using Create React App
 npx create-react-app counter --template typescript
 
+// Installing Axios and its TypeScript definitions
 npm install --save axios
 npm install --save-dev @types/axios
 
-
+// Deleting node_modules folder, clearing npm cache, and reinstalling packages
 Delete the node_modules folder.
 Clear the npm cache by running npm cache clean --force.
 Install the packages again by running npm install.
 Run your application again by running npm start.
 
-SOLID
-Single responsibility principle 
-Open closed principle - open for implementation and closed for modification
-Liskov Substitution - 
-    Interface IsSearchInputProps extends React.InputHTMLAttributes<HTMLInputElement>{
+// SOLID principles
+Single responsibility principle
+Open-closed principle (open for implementation and closed for modification)
+Liskov Substitution principle
+    interface IsSearchInputProps extends React.InputHTMLAttributes<HTMLInputElement>{
         isLarge?: boolean
     }
 
-Interface Segragation - 
-    export interface Iproduct {
+Interface Segregation principle
+    export interface IProduct {
         id: string;
         title: string
     }
 
-inteface IproductProps {
-    product: IProduct
-}
+    interface IProductProps {
+        product: IProduct
+    }
 
-one component should have its own interface of the particular props it uses so that all the interface properties are not imported directly.
+    One component should have its own interface of the particular props it uses so that all the interface properties are not imported directly.
 
-Dependency Inversion: One entity should depend upon abstractions not concretions. DIP
+Dependency Inversion principle
+One entity should depend upon abstractions not concretions. DIP
 
-# Custom Hooks :
+// Custom Hooks
 Custom React hooks are reusable functions that can encapsulate and abstract away some of the common and often repetitive logic in React components. Here are some scenarios where custom React hooks can be useful:
 
 State management: If you find yourself writing the same code to manage state in multiple components, you can create a custom hook to handle that logic for you. For example, you can create a hook to manage form state or to handle API calls.
@@ -73,4 +78,3 @@ Complexity: Custom hooks can add complexity to your codebase, especially if they
 Learning curve: Creating custom hooks requires some knowledge of React hooks and can have a learning curve, especially for beginners.
 
 Overall, custom React hooks can be a powerful tool for creating reusable, composable, and testable code. However, like any tool, they should be used judiciously and with care to avoid introducing unnecessary complexity or reducing the readability of your code.
-*/
