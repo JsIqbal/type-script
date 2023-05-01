@@ -17,10 +17,10 @@ npx create-react-app counter --template typescript
 
 The above command cannot work sometime. In times like that we need to remove the current create-react-app and install lower version of it:
 
-{
+ ```js
 npm uninstall -g create-react-app
 npm install -g create-react-app@3.4.1
-}
+```
 
 
 # Installing Axios and its TypeScript definitions
