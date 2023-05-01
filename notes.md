@@ -1,16 +1,16 @@
 # Installing Typescript
-npm i -g typescript
+```npm i -g typescript```
 
 # Transpiling a TypeScript file to JavaScript
-tsc hello.ts
+```tsc hello.ts```
 
 # tsconfig.json configuration
-{
+{```
     "compilerOptions": {
         "target": "ES2015",
         "watch": true
     }
-}
+}```
 
 # Creating a TypeScript React app using Create React App
 npx create-react-app counter --template typescript
@@ -24,9 +24,9 @@ npm install -g create-react-app@3.4.1
 
 
 # Installing Axios and its TypeScript definitions
-npm install --save axios
+```npm install --save axios
 npm install --save-dev @types/axios
-
+```
 # Deleting node_modules folder, clearing npm cache, and reinstalling packages
 Delete the node_modules folder.
 Clear the npm cache by running npm cache clean --force.
