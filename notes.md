@@ -5,7 +5,7 @@
 ```tsc hello.ts```
 
 # tsconfig.json configuration
-{```
+```{
     "compilerOptions": {
         "target": "ES2015",
         "watch": true
@@ -37,7 +37,7 @@ Run your application again by running npm start.
 Single responsibility principle
 Open-closed principle (open for implementation and closed for modification)
 Liskov Substitution principle
-
+```js
 interface IsSearchInputProps extends React.InputHTMLAttributes<HTMLInputElement>{
     isLarge?: boolean
 }
@@ -52,7 +52,7 @@ export interface IProduct {
 interface IProductProps {
     product: IProduct
 }
-
+```
 # One component should have its own interface of the particular props it uses so that all the interface properties are not imported directly.
 
 Dependency Inversion principle
