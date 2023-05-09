@@ -19,6 +19,7 @@ const QuestionForm: React.FC = () => {
         loading,
     } = useQuestionSubmit();
 
+    const [reward, setReward] = useState(false);
     if (loading) {
         return <h1 className="text-center mt-5">Loading...</h1>;
     }
@@ -38,57 +39,59 @@ const QuestionForm: React.FC = () => {
                             text,
                             campaign,
                         }: any = item;
-                        if (campaign?.digital_reward === "Yes") {
-                            return (
-                                <div key={id} className="mb-3">
-                                    <label
-                                        htmlFor={`question-${id}`}
-                                        className="form-label fw-bold"
+                        campaign.digital_reward === "Yes" && setReward(true);
+                        return (
+                            <div key={id} className="mb-3">
+                                <label
+                                    htmlFor={`question-${id}`}
+                                    className="form-label fw-bold"
+                                >
+                                    {text}
+                                </label>
+                                {question_type === "Multiple Choice" ? (
+                                    <Field
+                                        required
+                                        name={`question-${id}`}
+                                        as="select"
+                                        className="form-select"
                                     >
-                                        {text}
-                                    </label>
-                                    {question_type === "Multiple Choice" ? (
-                                        <Field
-                                            required
-                                            name={`question-${id}`}
-                                            as="select"
-                                            className="form-select"
-                                        >
-                                            <option value="">
-                                                Select an option
+                                        <option value="">
+                                            Select an option
+                                        </option>
+                                        {choices.map((choice: any) => (
+                                            <option
+                                                key={choice.id}
+                                                value={choice.text}
+                                            >
+                                                {choice.text}
                                             </option>
-                                            {choices.map((choice: any) => (
-                                                <option
-                                                    key={choice.id}
-                                                    value={choice.text}
-                                                >
-                                                    {choice.text}
-                                                </option>
-                                            ))}
-                                        </Field>
-                                    ) : (
-                                        <Field
-                                            required
-                                            name={`question-${id}`}
-                                            type={
-                                                question_type === "Text"
-                                                    ? "text"
-                                                    : "file"
-                                            }
-                                            className="form-control"
-                                        />
-                                    )}
-                                </div>
-                            );
-                        }
+                                        ))}
+                                    </Field>
+                                ) : (
+                                    <Field
+                                        required
+                                        name={`question-${id}`}
+                                        type={
+                                            question_type === "Text"
+                                                ? "text"
+                                                : "file"
+                                        }
+                                        className="form-control"
+                                    />
+                                )}
+                            </div>
+                        );
+                        // }
                     })}
-                    <FormCheck
-                        className="mb-3 mt-4"
-                        type="checkbox"
-                        label="Give Digital Reward!"
-                        checked={agreed}
-                        onChange={handleAgreementCheck}
-                    />
+                    {reward && (
+                        <FormCheck
+                            className="mb-3 mt-4"
+                            type="checkbox"
+                            label="Give Digital Reward!"
+                            checked={agreed}
+                            onChange={handleAgreementCheck}
+                        />
+                    )}
                     <DigitalSign
                         required
                         signatureRef={signatureRef}
