@@ -12,12 +12,6 @@ const CreateBAModal = ({ baOpen, setBaOpen, item, disabled }: any) => {
 
     return (
         <div className="d-flex align-items-center">
-            {/* <ModButton
-                disabled={disabled}
-                element={"AddBA"}
-                event={() => setBaOpen(true)}
-                className="btn btn-primary mr-2 ms-2"
-            /> */}
             <button
                 disabled={disabled}
                 onClick={() => setBaOpen(true)}
