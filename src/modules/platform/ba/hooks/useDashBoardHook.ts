@@ -8,6 +8,7 @@ interface DashBoardData {
     teritorry: "";
     contact: "";
     Impression: null;
+    total_impression: null;
 }
 
 const useDashBoardHook = () => {

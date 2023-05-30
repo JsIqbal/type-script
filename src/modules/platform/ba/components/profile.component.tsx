@@ -10,6 +10,7 @@ function Profile() {
     const [profileOpen, setProfileOpen] = useState(false);
     const { data, loading, error } = useDashBoardHook();
     const Impression = data?.Impression;
+    const total_impression = data?.total_impression;
     const area = data?.area;
     const campaigns = data?.campaigns;
     const contact = data?.contact;
@@ -49,6 +50,10 @@ function Profile() {
                     <ListGroup className="list-group-flush">
                         <ListGroup.Item>
                             <strong>Count:</strong> {Impression || 0}
+                        </ListGroup.Item>
+                        <ListGroup.Item>
+                            <strong>Total Count:</strong>{" "}
+                            {total_impression || 0}
                         </ListGroup.Item>
                         <ListGroup.Item>
                             <strong>Campaigns:</strong> {campaigns}

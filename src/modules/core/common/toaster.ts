@@ -23,4 +23,22 @@ function error() {
     });
 }
 
-export { success, error };
+function er() {
+    toast.error("Number Already Exists!", {
+        autoClose: 1000,
+        // onClose: () => {
+        //     window.location.reload();
+        // },
+    });
+}
+
+function log() {
+    toast.error("Logout Due To Inactivity!", {
+        autoClose: 1000,
+        onClose: () => {
+            window.location.reload();
+        },
+    });
+}
+
+export { success, error, er, log };

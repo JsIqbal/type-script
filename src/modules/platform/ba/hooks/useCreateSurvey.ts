@@ -3,6 +3,7 @@ import axios from "axios";
 import { useGetCampaign } from "./useGetCampaign";
 import { toast } from "../../../core";
 import { useNavigate } from "react-router-dom";
+import { er } from "../../../core/common/toaster";
 
 function useCreateSurvey() {
     const navigate = useNavigate();
@@ -25,7 +26,8 @@ function useCreateSurvey() {
     };
 
     const handleSubmit = (values: any, e: any) => {
-        // e.resetForm();
+        // e.preventDefault();
+        console.log(e);
         setSubmitting(true);
 
         const data = new FormData();
@@ -50,7 +52,9 @@ function useCreateSurvey() {
                 navigate("/survey/otp");
             })
             .catch((err) => {
-                navigate("/");
+                er();
+                // console.error(err);
+                // navigate("/");
             })
             .finally(() => {
                 setSubmitting(false);
