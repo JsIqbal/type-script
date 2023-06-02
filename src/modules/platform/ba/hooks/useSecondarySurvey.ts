@@ -30,7 +30,7 @@ function useSecondarySurvey() {
         data.append("profession", values.profession);
         data.append("participant_id", id);
         // e.preventDefault();
-        const url = "http://127.0.0.1:8000/campaign/create-survey/";
+        const url = "https://app.qik-check.com/campaign/create-survey/";
         const access_token = `Token ${localStorage.getItem("access")}`;
         const headers = {
             Authorization: access_token,

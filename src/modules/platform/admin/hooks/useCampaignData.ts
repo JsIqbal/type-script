@@ -19,7 +19,7 @@ const useCampaignData = () => {
         const fetchCampaignData = async () => {
             try {
                 const response = await axios.get(
-                    "http://127.0.0.1:8000/campaign/dashboard/",
+                    "https://app.qik-check.com/campaign/dashboard/",
                     {
                         headers: {
                             Authorization: access_token,

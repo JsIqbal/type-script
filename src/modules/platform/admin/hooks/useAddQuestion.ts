@@ -26,7 +26,7 @@
 //         e.preventDefault();
 
 //         const access_token = `Token ${localStorage.getItem("access")}`;
-//         const url = "http://127.0.0.1:8000/campaign/create-questions/";
+//         const url = "https://app.qik-check.com/campaign/create-questions/";
 //         const config = {
 //             headers: {
 //                 Authorization: access_token,
@@ -88,7 +88,7 @@ export const useAddQuestion = (item: any) => {
         e.preventDefault();
 
         const access_token = `Token ${localStorage.getItem("access")}`;
-        const url = "http://127.0.0.1:8000/campaign/create-questions/";
+        const url = "https://app.qik-check.com/campaign/create-questions/";
         const config = {
             headers: {
                 Authorization: access_token,

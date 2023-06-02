@@ -16,7 +16,7 @@ const useAddBa = (item: any, setBaOpen: any) => {
             }
             formData.append("campaign_Code", campaign_Code);
             const response = await axios.post(
-                "http://127.0.0.1:8000/account/create-ba/",
+                "https://app.qik-check.com/account/create-ba/",
                 formData,
                 {
                     headers: {

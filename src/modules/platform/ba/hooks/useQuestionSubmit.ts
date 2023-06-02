@@ -73,7 +73,7 @@ const useQuestionSubmit = () => {
             JSON.stringify(parseInt(participant_id))
         );
 
-        formData.append("signature", JSON.stringify(true));
+        formData.append("signature", "True");
         formData.append("survey_response", JSON.stringify(data));
 
         const headers = {
@@ -81,15 +81,13 @@ const useQuestionSubmit = () => {
         };
 
         try {
-            console.log(data);
             const response = await axios.post(
-                "http://127.0.0.1:8000/campaign/submit-survey/",
+                "https://app.qik-check.com/campaign/submit-survey/",
                 formData,
                 {
                     headers,
                 }
             );
-            console.log(response.data.rewardData);
             rewardData = response.data.rewardData;
             localStorage.setItem("rewardData", JSON.stringify(rewardData));
             if (agreed) {
@@ -100,7 +98,9 @@ const useQuestionSubmit = () => {
             localStorage.removeItem("participant_id");
             localStorage.removeItem("rewardData");
             // window.location.href = "/";
-            return navigate("/");
+            setTimeout(() => {
+                return navigate("/");
+            }, 1000);
         } catch (err) {
             error();
         }

@@ -1,5 +1,6 @@
 {
-    "name": "my-app",
+    "name": "quk-check",
+    "homepage": "https://jti.qik-check.com",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
