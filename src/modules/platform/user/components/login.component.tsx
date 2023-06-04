@@ -9,11 +9,16 @@ const Login: React.FC = () => {
 
     return (
         <div className="container-fluid vh-100 d-flex justify-content-center align-items-center login-background">
-            <div className="col-lg-4 card p-3" style={{ borderRadius: "10px" }}>
-                <Typography
-                    className="text-center mb-4 fs-2"
-                    element="QikCheck"
-                />
+            <div
+                className="col-lg-4 login-form p-3"
+                style={{ borderRadius: "10px" }}
+            >
+                <div className="row">
+                    <Typography
+                        className="text-center  fs-2"
+                        element="Qik-Check"
+                    />
+                </div>
                 <Formik
                     initialValues={initialValues}
                     validationSchema={loginSchema}
@@ -23,6 +28,12 @@ const Login: React.FC = () => {
                         <LoginForm isSubmitting={isSubmitting} />
                     )}
                 </Formik>
+                <div className="row">
+                    <Typography
+                        className="text-center  fs-6"
+                        element="Powered by ADA"
+                    />
+                </div>
             </div>
         </div>
     );
