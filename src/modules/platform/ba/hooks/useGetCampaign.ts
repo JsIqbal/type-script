@@ -17,6 +17,7 @@ const useGetCampaign = () => {
                     "https://app.qik-check.com/campaign/get-campaign/",
                     { headers }
                 );
+                // console.log(response.data);
                 setCampaigns(response.data);
                 setLoading(false);
             } catch (err) {

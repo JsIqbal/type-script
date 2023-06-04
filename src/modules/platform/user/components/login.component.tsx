@@ -9,7 +9,7 @@ const Login: React.FC = () => {
 
     return (
         <div className="container-fluid vh-100 d-flex justify-content-center align-items-center login-background">
-            <div className="card p-3" style={{ borderRadius: "10px" }}>
+            <div className="col-lg-4 card p-3" style={{ borderRadius: "10px" }}>
                 <Typography
                     className="text-center mb-4 fs-2"
                     element="QikCheck"
