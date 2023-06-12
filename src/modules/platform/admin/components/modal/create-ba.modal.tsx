@@ -8,7 +8,7 @@ import useAddBa from "../../hooks/uaeAddBa";
 Modal.setAppElement("#root");
 
 const CreateBAModal = ({ baOpen, setBaOpen, item, disabled }: any) => {
-    const { handleSubmit, setFile } = useAddBa(baOpen, setBaOpen);
+    const { handleSubmit, setFile } = useAddBa(item, baOpen, setBaOpen);
 
     return (
         <div className="d-flex align-items-center">

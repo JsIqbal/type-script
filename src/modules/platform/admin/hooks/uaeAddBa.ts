@@ -3,7 +3,7 @@ import axios from "axios";
 
 import { toast } from "../../../core";
 
-const useAddBa = (item: any, setBaOpen: any) => {
+const useAddBa = (item: any, baOpen: any, setBaOpen: any) => {
     const [file, setFile] = useState();
     const access_token = `Token ${localStorage.getItem("access")}`;
     const campaign_Code = item.id;
