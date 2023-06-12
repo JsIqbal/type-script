@@ -1,59 +1,19 @@
-// import { Col, Placeholder } from "react-bootstrap";
-// import useDashBoardHook from "../hooks/useDashBoardHook";
-// import useSecondarySurvey from "../hooks/useSecondarySurvey";
-
-// function SecondarySurvey() {
-//     const { data } = useDashBoardHook();
-
-//     const { loading, error, formData, handleChange, handleSubmit } =
-//         useSecondarySurvey();
-
-//     if (loading)
-//         return (
-//             <div aria-hidden="true">
-//                 <Placeholder xs={6} />
-//             </div>
-//         );
-//     if (error) return <div>{error}</div>;
-//     return (
-//         <Col
-//             style={{ marginBottom: "43px" }}
-//             className="col-lg-6 ms-auto me-auto mt-5 card chart p-5 mb-5"
-//         >
-//             {/*  Here will be the form */}
-//         </Col>
-//     );
-// }
-
-// export default SecondarySurvey;
-
-import {
-    Col,
-    Form,
-    FormGroup,
-    // label,
-    // Input,
-    Button,
-    Placeholder,
-} from "react-bootstrap";
+import { Col, Form, FormGroup, Button, Placeholder } from "react-bootstrap";
 import { Formik, Field, ErrorMessage } from "formik";
 import useDashBoardHook from "../hooks/useDashBoardHook";
 import useSecondarySurvey from "../hooks/useSecondarySurvey";
 import { surveySecondarySchema } from "../ba.schema";
+import useDynamicSelect from "../hooks/useDynamicSelect";
 
 function SecondarySurvey() {
     const { data } = useDashBoardHook();
+    const dynamic = useDynamicSelect();
+    console.log(dynamic);
 
     const { loading, error, formData, handleChange, handleSubmit } =
         useSecondarySurvey();
 
-    if (loading)
-        return (
-            // <div aria-hidden="true">
-            //     <Placeholder xs={6}/>
-            // </div>
-            <h1 className="text-center mt-5">Loading...</h1>
-        );
+    if (loading) return <h1 className="text-center mt-5">Loading...</h1>;
     if (error) return <div>{error}</div>;
 
     return (
@@ -109,10 +69,14 @@ function SecondarySurvey() {
                                 }`}
                             >
                                 <option value="">Select age range</option>
-                                <option value="25-30">25-30</option>
-                                <option value="31-35">31-35</option>
-                                <option value="36-41">36-41</option>
-                                <option value="42-47">42-47</option>
+                                {dynamic?.age_choices.map((ageChoice) => (
+                                    <option
+                                        key={ageChoice.id}
+                                        value={ageChoice.age}
+                                    >
+                                        {ageChoice.age}
+                                    </option>
+                                ))}
                             </Field>
                             <ErrorMessage
                                 name="age"
@@ -136,11 +100,14 @@ function SecondarySurvey() {
                                 }`}
                             >
                                 <option value="">Select profession</option>
-                                <option value="student">Student</option>
-                                <option value="teacher">Teacher</option>
-                                <option value="job">Job</option>
-                                <option value="driver">Driver</option>
-                                <option value="ceo">CEO</option>
+                                {dynamic?.job_choices.map((jobChoice) => (
+                                    <option
+                                        key={jobChoice.id}
+                                        value={jobChoice.professions}
+                                    >
+                                        {jobChoice.professions}
+                                    </option>
+                                ))}
                             </Field>
                             <ErrorMessage
                                 name="profession"
