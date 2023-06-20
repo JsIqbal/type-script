@@ -34,7 +34,7 @@ export function Download({
                 <span>Report</span>
             </button>
             <a
-                href={`http://127.0.0.1:8000/campaign/download-ba-list/?Token=${localStorage.getItem(
+                href={`https://app.qik-check.com/campaign/download-ba-list/?Token=${localStorage.getItem(
                     "access"
                 )}&CampaignID=${item.id}`}
                 target="_blank"
@@ -85,7 +85,7 @@ export function Download({
                     <div className="d-grid gap-2">
                         <a
                             target="_blank"
-                            href={`http://127.0.0.1:8000/campaign/download-report/?Token=${localStorage.getItem(
+                            href={`https://app.qik-check.com/campaign/download-report/?Token=${localStorage.getItem(
                                 "access"
                             )}&From=${formData.From}&To=${
                                 formData.To

@@ -41,4 +41,13 @@ function log() {
     });
 }
 
-export { success, error, er, log };
+async function feature() {
+    toast.success("Successful!", {
+        autoClose: 500,
+        onClose: () => {
+            window.location.reload();
+        },
+    });
+}
+
+export { success, error, er, log, feature };

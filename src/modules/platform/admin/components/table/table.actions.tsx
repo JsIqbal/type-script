@@ -5,6 +5,7 @@ import { interfaces } from "../../";
 import { AddQuestion } from "../modal/add-question.modal";
 import { Download } from "../modal/download-campaign.modal";
 import CreateBAModal from "../modal/create-ba.modal";
+import { CampaignFeature } from "../modal/campaign-feature.modal";
 
 const TableAction = ({
     disabled,
@@ -16,6 +17,7 @@ const TableAction = ({
     const [questionOpen, setQuestionOpen] = useState<boolean>(false);
     const [downloadOpen, setDownloadOpen] = useState<boolean>(false);
     const [baOpen, setBaOpen] = useState<boolean>(false);
+    const [featureOpen, setFeatureOpen] = useState<boolean>(false);
     return (
         <div className="row">
             <div className="col-12 col-md-6 d-flex justify-content-start mb-4">
@@ -29,17 +31,18 @@ const TableAction = ({
             </div>
             <div className="col-12 col-md-6 d-flex justify-content-end align-items-center mb-4">
                 <div className="d-flex flex-column flex-md-row align-items-center justify-content-md-end">
-                    <input
+                    {/* <input
                         disabled={true}
                         placeholder={item ? item.name : "selected user"}
                         className="form-control mb-2 mb-md-0 mr-md-2"
-                    />
-                    {/* <CreateBAModal
-                        baOpen={baOpen}
-                        setBaOpen={setBaOpen}
-                        item={item}
-                        disabled={disabled}
                     /> */}
+                    <CampaignFeature
+                        disabled={disabled}
+                        item={item}
+                        featureOpen={featureOpen}
+                        setFeatureOpen={setFeatureOpen}
+                    />
+
                     <Download
                         disabled={disabled}
                         item={item}

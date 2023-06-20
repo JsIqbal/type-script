@@ -19,7 +19,7 @@ const useSurveyOtp = () => {
             localStorage.getItem("participant_id")!
         );
 
-        const submitOTP = "http://127.0.0.1:8000/campaign/submit-otp/";
+        const submitOTP = "https://app.qik-check.com/campaign/submit-otp/";
         const headers = {
             Authorization: access_token,
         };

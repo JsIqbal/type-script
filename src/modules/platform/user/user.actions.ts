@@ -6,7 +6,7 @@ export async function login(loginData: any) {
     data.append("password", loginData.password);
     try {
         const res = await axios.post(
-            "http://127.0.0.1:8000/account/login/",
+            "https://app.qik-check.com/account/login/",
             data
         );
         return res;

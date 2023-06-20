@@ -23,7 +23,7 @@ const useDynamicSelect = (): CampaignData | null => {
         // const fetchData = async () => {
         //     try {
         //         const response = await axios.get<CampaignData>(
-        //             "http://127.0.0.1:8000/campaign/dynamics/"
+        //             "https://app.qik-check.com/campaign/dynamics/"
         //         );
         //         console.log(response.data);
         //         setData(response.data);
@@ -34,7 +34,7 @@ const useDynamicSelect = (): CampaignData | null => {
         const fetchData = async () => {
             try {
                 const response = await axios.get<CampaignData>(
-                    "http://127.0.0.1:8000/campaign/dynamics/"
+                    "https://app.qik-check.com/campaign/dynamics/"
                 );
 
                 const decodedData: CampaignData = {
