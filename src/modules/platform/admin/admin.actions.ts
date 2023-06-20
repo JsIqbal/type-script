@@ -8,7 +8,7 @@ export async function createCampaign(formData: any, closeModal: any) {
     try {
         const access_token = `Token ${localStorage.getItem("access")}`;
         const res = await axios.post(
-            "https://app.qik-check.com/campaign/create-campaign/",
+            "http://127.0.0.1:8000/campaign/create-campaign/",
             data,
             {
                 headers: {
@@ -25,7 +25,7 @@ export async function createCampaign(formData: any, closeModal: any) {
 
 export const getCampaignList = async (next?: string, prev?: string) => {
     const access_token = `Token ${localStorage.getItem("access")}`;
-    let url = "https://app.qik-check.com/campaign/campaign-list";
+    let url = "http://127.0.0.1:8000/campaign/campaign-list";
 
     if (next || prev) {
         url = next ? next : prev ? prev : url;

@@ -36,7 +36,7 @@ function useCreateSurvey() {
         data.append("outlet_code", values.code);
         data.append("participant_operator", values.participant_operator);
 
-        const url = "https://app.qik-check.com/campaign/start-survey/";
+        const url = "http://127.0.0.1:8000/campaign/start-survey/";
         const access_token = `Token ${localStorage.getItem("access")}`;
         const headers = {
             Authorization: access_token,

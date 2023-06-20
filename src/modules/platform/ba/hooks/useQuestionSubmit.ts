@@ -82,7 +82,7 @@ const useQuestionSubmit = () => {
 
         try {
             const response = await axios.post(
-                "https://app.qik-check.com/campaign/submit-survey/",
+                "http://127.0.0.1:8000/campaign/submit-survey/",
                 formData,
                 {
                     headers,

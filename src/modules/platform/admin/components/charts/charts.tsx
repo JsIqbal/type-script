@@ -27,7 +27,7 @@ const Charts = () => {
             <div className="card-body">
                 <Typography
                     className="fw-semibold mb-2"
-                    element={"Campaign/Impressions"}
+                    element={"EAS Trial/Campaign"}
                 />
                 <BarChart />
             </div>

@@ -55,7 +55,8 @@ export default function App() {
     }, []);
 
     return (
-        <Loader>
+        // <Loader>
+        <>
             <Routes>
                 {isLoggedIn && !isBa && isAdmin && (
                     <Route
@@ -104,6 +105,7 @@ export default function App() {
                 />
             </Routes>
             <ToastContainer />
-        </Loader>
+        </>
+        // </Loader>
     );
 }

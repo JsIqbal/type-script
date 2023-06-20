@@ -27,7 +27,7 @@
 //         body: formData,
 //     };
 
-//     fetch("https://app.qik-check.com/campaign/submit-survey/", requestOptions)
+//     fetch("http://127.0.0.1:8000/campaign/submit-survey/", requestOptions)
 //         .then((response) => response.json())
 
 //         .then((data) => console.log(data))

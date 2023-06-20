@@ -8,7 +8,6 @@ import useDynamicSelect from "../hooks/useDynamicSelect";
 function SecondarySurvey() {
     const { data } = useDashBoardHook();
     const dynamic = useDynamicSelect();
-    console.log(dynamic);
 
     const { loading, error, formData, handleChange, handleSubmit } =
         useSecondarySurvey();

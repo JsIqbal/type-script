@@ -14,7 +14,7 @@ const useReward = () => {
         try {
             alert("Give confirmation before submitting");
             const response = await axios.post(
-                "https://app.qik-check.com/digital-reward/send-reward/",
+                "http://127.0.0.1:8000/digital-reward/send-reward/",
                 data,
                 {
                     headers: {

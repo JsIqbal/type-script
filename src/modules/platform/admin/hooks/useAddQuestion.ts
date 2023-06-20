@@ -26,7 +26,7 @@
 //         e.preventDefault();
 
 //         const access_token = `Token ${localStorage.getItem("access")}`;
-//         const url = "https://app.qik-check.com/campaign/create-questions/";
+//         const url = "http://127.0.0.1:8000/campaign/create-questions/";
 //         const config = {
 //             headers: {
 //                 Authorization: access_token,
@@ -88,7 +88,7 @@ export const useAddQuestion = (item: any) => {
         e.preventDefault();
 
         const access_token = `Token ${localStorage.getItem("access")}`;
-        const url = "https://app.qik-check.com/campaign/create-questions/";
+        const url = "http://127.0.0.1:8000/campaign/create-questions/";
         const config = {
             headers: {
                 Authorization: access_token,
@@ -107,16 +107,33 @@ export const useAddQuestion = (item: any) => {
         data.append("type", selectedOption);
         data.append("question", inputOption);
 
-        if (selectedOption === "Multiple Choice") {
+        if (
+            selectedOption === "Multiple Choice" ||
+            selectedOption === "Checkbox"
+        ) {
             data.append("choices", JSON.stringify(choices));
         }
 
+        // try {
+        //     const response = await axios.post(url, data, config);
+        //     toast.success();
+        //     setSelectedOption("Text");
+        //     setInputOption("");
+        //     setChoices([]);
+        // } catch (err) {
+        //     toast.error();
+        // }
         try {
             const response = await axios.post(url, data, config);
             toast.success();
+
+            // Reset the form values
             setSelectedOption("Text");
             setInputOption("");
             setChoices([]);
+
+            // Clear the form inputs
+            e.target.reset();
         } catch (err) {
             toast.error();
         }

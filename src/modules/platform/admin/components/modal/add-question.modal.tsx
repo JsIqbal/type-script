@@ -45,6 +45,7 @@ export function AddQuestion({ questionOpen, setQuestionOpen, item }: any) {
                         >
                             <option value="Text">TEXT</option>
                             <option value="Multiple Choice">MCQ</option>
+                            <option value="Checkbox">Checkbox</option>
                         </select>
                     </div>
                     <div className="form-group">
@@ -61,6 +62,19 @@ export function AddQuestion({ questionOpen, setQuestionOpen, item }: any) {
                     {selectedOption === "Multiple Choice" && (
                         <div className="form-group">
                             <label htmlFor="choices">OPTIONS:</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="choices"
+                                placeholder="Enter a question"
+                                value={choices}
+                                onChange={handleChoicesChange}
+                            />
+                        </div>
+                    )}
+                    {selectedOption === "Checkbox" && (
+                        <div className="form-group">
+                            <label htmlFor="choices">CHECKBOX:</label>
                             <input
                                 type="text"
                                 className="form-control"

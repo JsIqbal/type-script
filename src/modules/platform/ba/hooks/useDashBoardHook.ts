@@ -20,7 +20,7 @@ const useDashBoardHook = () => {
         const fetchDashData = async () => {
             try {
                 const response = await axios.get(
-                    "https://app.qik-check.com/campaign/self-dashboard/",
+                    "http://127.0.0.1:8000/campaign/self-dashboard/",
                     {
                         headers: {
                             Authorization: access_token,

@@ -8,7 +8,7 @@ const useResendOtp = () => {
             localStorage.getItem("participant_id")!
         );
 
-        const submitOTP = "https://app.qik-check.com/campaign/resend-otp/";
+        const submitOTP = "http://127.0.0.1:8000/campaign/resend-otp/";
         const headers = {
             Authorization: access_token,
         };

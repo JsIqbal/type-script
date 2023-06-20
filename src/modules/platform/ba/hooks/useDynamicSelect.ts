@@ -20,13 +20,44 @@ const useDynamicSelect = (): CampaignData | null => {
     const [data, setData] = useState<CampaignData | null>(null);
 
     useEffect(() => {
+        // const fetchData = async () => {
+        //     try {
+        //         const response = await axios.get<CampaignData>(
+        //             "http://127.0.0.1:8000/campaign/dynamics/"
+        //         );
+        //         console.log(response.data);
+        //         setData(response.data);
+        //     } catch (error) {
+        //         console.error("Error fetching dynamic select data:", error);
+        //     }
+        // };
         const fetchData = async () => {
             try {
                 const response = await axios.get<CampaignData>(
-                    "https://app.qik-check.com/campaign/dynamics/"
+                    "http://127.0.0.1:8000/campaign/dynamics/"
                 );
-                console.log(response.data);
-                setData(response.data);
+
+                const decodedData: CampaignData = {
+                    job_choices: response.data.job_choices.map((choice) => ({
+                        id: choice.id,
+                        professions: decodeURIComponent(choice.professions),
+                    })),
+                    age_choices: response.data.age_choices.map((choice) => ({
+                        id: choice.id,
+                        age: decodeURIComponent(choice.age),
+                    })),
+                };
+
+                const sortedData: CampaignData = {
+                    job_choices: decodedData.job_choices.sort((a, b) =>
+                        a.professions.localeCompare(b.professions)
+                    ),
+                    age_choices: decodedData.age_choices.sort((a, b) =>
+                        a.age.localeCompare(b.age)
+                    ),
+                };
+
+                setData(sortedData);
             } catch (error) {
                 console.error("Error fetching dynamic select data:", error);
             }

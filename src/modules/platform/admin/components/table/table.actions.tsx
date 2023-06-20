@@ -34,12 +34,12 @@ const TableAction = ({
                         placeholder={item ? item.name : "selected user"}
                         className="form-control mb-2 mb-md-0 mr-md-2"
                     />
-                    <CreateBAModal
+                    {/* <CreateBAModal
                         baOpen={baOpen}
                         setBaOpen={setBaOpen}
                         item={item}
                         disabled={disabled}
-                    />
+                    /> */}
                     <Download
                         disabled={disabled}
                         item={item}

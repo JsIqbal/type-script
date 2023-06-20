@@ -50,7 +50,7 @@ const BarChart: React.FC = () => {
 
     const series = [
         {
-            name: "Impression",
+            name: "EAS Trial",
             data: chartData.map((item) => item.y),
         },
     ];
