@@ -7,5 +7,7 @@ export const headers: string[] = [
     "impression",
     "totatlBA",
     "allow_duplicate",
+    "allow_duplicate_across_campaigns",
+    "digital_reward",
     "description",
 ];

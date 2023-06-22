@@ -31,7 +31,7 @@ function Banner(): JSX.Element {
                     sm
                     className="text-center bg-light rounded py-3 my-3 mx-4 card chart"
                 >
-                    {`Impression - ${campaignReport?.total_impression || 0}`}
+                    {`EAS Trial - ${campaignReport?.total_impression || 0}`}
                 </Col>
             </Row>
         </Container>

@@ -102,7 +102,13 @@ const TableBody = ({
                         }}
                     >
                         {headers.map((header: any) => (
-                            <td key={header} className="align-middle pt-0 pb-0">
+                            <td
+                                style={{
+                                    fontSize: "12px",
+                                }}
+                                key={header}
+                                className="align-middle pt-0 pb-0"
+                            >
                                 {item[header]}
                             </td>
                         ))}

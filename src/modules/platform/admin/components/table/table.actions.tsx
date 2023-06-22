@@ -5,7 +5,7 @@ import { interfaces } from "../../";
 import { AddQuestion } from "../modal/add-question.modal";
 import { Download } from "../modal/download-campaign.modal";
 import CreateBAModal from "../modal/create-ba.modal";
-import { CampaignFeature } from "../modal/campaign-feature.modal";
+import { CampaignFeature } from "../campaign-feature.component";
 
 const TableAction = ({
     disabled,

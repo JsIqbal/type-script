@@ -1,9 +1,30 @@
-const TableHead = ({ headers }: any) => {
+const headers: string[] = [
+    "ID",
+    "NAME",
+    "BY",
+    "STATUS",
+    "TIME",
+    "PARTICIPANTS",
+    "BA",
+    "DUPPLICATE",
+    "DUPLICATE ACROSS",
+    "REWARD",
+    "DESCRIPTION",
+];
+
+const TableHead = () => {
     return (
         <thead className="thead-light">
             <tr>
                 {headers.map((header: any) => (
-                    <th className="table-dark" key={header} scope="col">
+                    <th
+                        style={{
+                            fontSize: "11px",
+                        }}
+                        className="table-dark"
+                        key={header}
+                        scope="col"
+                    >
                         {header}
                     </th>
                 ))}

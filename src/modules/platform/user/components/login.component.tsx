@@ -15,7 +15,7 @@ const Login: React.FC = () => {
             >
                 <div className="row">
                     <Typography
-                        className="text-center  fs-2"
+                        className="text-center  fs-1 fw-bold"
                         element="Qik-Check"
                     />
                 </div>

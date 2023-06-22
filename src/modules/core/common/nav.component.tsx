@@ -17,7 +17,7 @@ const Nav: React.FC = () => {
                         navigate("/");
                     }}
                     className="typo-graphy logo-text"
-                    element={"QIKCHECK"}
+                    element={"QIK-CHECK"}
                 />
                 <div className="d-flex align-items-center">
                     {user.type === "BA" && <BaProfile />}

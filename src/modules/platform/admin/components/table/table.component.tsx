@@ -44,7 +44,7 @@ export function Table(): JSX.Element {
 
             <div className="table-responsive">
                 <table className="table table-bordered table-hover">
-                    <TableHead headers={thead.headers} />
+                    <TableHead />
                     <TableBody
                         itemsPerPage={itemsPerPage}
                         selectedRow={selectedRow}

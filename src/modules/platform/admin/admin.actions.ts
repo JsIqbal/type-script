@@ -68,3 +68,107 @@ export async function fetchCampaignList(
         console.error(error);
     }
 }
+
+export const handleCampaignStatusSubmit = async (item: any) => {
+    try {
+        const campaignStatusEndpoint =
+            "https://app.qik-check.com/campaign/campaign-status/";
+        const headers = {
+            Authorization: `Token ${localStorage.getItem("access")}`,
+        };
+        const data = new FormData();
+        data.append("CampaignID", item.id);
+        data.append(
+            "Status",
+            item.status === "PENDING" ? "RUNNING" : "PENDING"
+        );
+
+        const response = await axios.post(campaignStatusEndpoint, data, {
+            headers: headers,
+        });
+
+        toast.feature();
+    } catch (error) {
+        toast.error();
+        console.error(error);
+    }
+};
+
+export const handleDigitalRewardSubmit = async (item: any) => {
+    try {
+        const digitalRewardEndpoint =
+            "https://app.qik-check.com/campaign/allow-digital-reward/";
+        const headers = {
+            Authorization: `Token ${localStorage.getItem("access")}`,
+        };
+        const data = new FormData();
+        data.append("campaign_id", item.id);
+        data.append(
+            "reward_option",
+            item.digital_reward === "Yes" ? "No" : "Yes"
+        );
+
+        const response = await axios.post(digitalRewardEndpoint, data, {
+            headers: headers,
+        });
+
+        toast.feature();
+    } catch (error) {
+        toast.error();
+        console.error(error);
+    }
+};
+
+export const handleAllowDuplicatesSubmit = async (item: any) => {
+    try {
+        const allowDuplicatesEndpoint =
+            "https://app.qik-check.com/campaign/allow-dupicates/";
+        const headers = {
+            Authorization: `Token ${localStorage.getItem("access")}`,
+        };
+        const data = new FormData();
+        data.append("campaign_id", item.id);
+        data.append(
+            "allow_duplicate",
+            item.allow_duplicate === "Yes" ? "No" : "Yes"
+        );
+
+        const response = await axios.post(allowDuplicatesEndpoint, data, {
+            headers: headers,
+        });
+
+        toast.feature();
+    } catch (error) {
+        toast.error();
+        console.error(error);
+    }
+};
+
+export const handleAllowDuplicatesAcrossCampaignsSubmit = async (item: any) => {
+    try {
+        const allowDuplicatesAcrossCampaignsEndpoint =
+            "https://app.qik-check.com/campaign/allow-dupicates-across-campaigns/";
+        const headers = {
+            Authorization: `Token ${localStorage.getItem("access")}`,
+        };
+        const data = new FormData();
+        data.append("campaign_id", item.id);
+        data.append(
+            "allow_duplicate_across_campaigns",
+            item.allow_duplicate_across_campaigns === "Yes" ? "No" : "Yes"
+        );
+
+        const response = await axios.post(
+            allowDuplicatesAcrossCampaignsEndpoint,
+            data,
+            {
+                headers: headers,
+            }
+        );
+
+        toast.feature();
+    } catch (error) {
+        toast.error();
+        console.error(error);
+    }
+};
